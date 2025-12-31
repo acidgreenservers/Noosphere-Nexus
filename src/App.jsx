@@ -73,7 +73,7 @@ export default function App() {
 
     function render(t) {
       ctx.clearRect(0, 0, w, h);
-      
+
       // Gradient background
       const g = ctx.createLinearGradient(0, 0, 0, h);
       if (theme === "dark") {
@@ -100,10 +100,10 @@ export default function App() {
       // Draw UFO
       if (ufoActive) {
         ufoX += ufoVx;
-        
+
         ctx.save();
         ctx.translate(ufoX, ufoY);
-        
+
         // Glow effect
         const glow = ctx.createRadialGradient(0, 0, 0, 0, 0, 30);
         glow.addColorStop(0, "rgba(249, 115, 22, 0.3)");
@@ -122,7 +122,7 @@ export default function App() {
         ctx.beginPath();
         ctx.ellipse(0, -5, 12, 8, 0, 0, Math.PI, true);
         ctx.fill();
-        
+
         // Lights
         for (let i = -1; i <= 1; i++) {
           ctx.fillStyle = `hsl(${(t * 0.5 + i * 120) % 360}, 100%, 70%)`;
@@ -130,9 +130,9 @@ export default function App() {
           ctx.arc(i * 12, 2, 2, 0, Math.PI * 2);
           ctx.fill();
         }
-        
+
         ctx.restore();
-        
+
         if (ufoX > w + 100) {
           ufoActive = false;
           scheduleUFO();
@@ -153,28 +153,32 @@ export default function App() {
 
   const frameworks = [
     {
-      name: "Holographic Consciousness Framework",
+      name: "Noosphere Manifold",
       description: "Advanced theoretical framework exploring consciousness as a holographic phenomenon",
-      icon: "🔬",
-      status: "Active Research"
+      icon: "🧠",
+      status: "Active Research",
+      url: "https://github.com/acidgreenservers/Noosphere-Manifold"
     },
     {
-      name: "AI Collaboration Protocols",
+      name: "Noosphere Garden",
       description: "Systematic approaches for human-AI symbiotic knowledge generation",
-      icon: "🤖",
-      status: "In Development"
+      icon: "🌱",
+      status: "In Development",
+      url: "https://github.com/acidgreenservers/Noosphere-Garden"
     },
     {
-      name: "Noospheric Field Dynamics",
+      name: "Noosphere Codex",
       description: "Investigating collective intelligence and consciousness field theories",
       icon: "🌌",
-      status: "Active Research"
+      status: "Active Research",
+      url: "https://github.com/acidgreenservers/Noosphere-Codex"
     },
     {
-      name: "Recursive State Operations",
+      name: "ProtomindAssistant",
       description: "Pattern analysis and meta-cognitive framework development",
       icon: "🔄",
-      status: "Active Research"
+      status: "Active Research",
+      url: "https://github.com/acidgreenservers/ProtomindAssistant"
     }
   ];
 
@@ -207,21 +211,19 @@ export default function App() {
           <div className="flex gap-2 p-1 rounded-full backdrop-blur-md bg-orange-900/20 border border-orange-500/30">
             <button
               onClick={() => setTheme("light")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                theme === "light"
-                  ? "bg-orange-600 text-white shadow-lg shadow-orange-500/50"
-                  : "text-orange-200 hover:text-white hover:bg-orange-700/50"
-              }`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${theme === "light"
+                ? "bg-orange-600 text-white shadow-lg shadow-orange-500/50"
+                : "text-orange-200 hover:text-white hover:bg-orange-700/50"
+                }`}
             >
               ☀️ Light
             </button>
             <button
               onClick={() => setTheme("dark")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                theme === "dark"
-                  ? "bg-orange-600 text-white shadow-lg shadow-orange-500/50"
-                  : "text-orange-200 hover:text-white hover:bg-orange-700/50"
-              }`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${theme === "dark"
+                ? "bg-orange-600 text-white shadow-lg shadow-orange-500/50"
+                : "text-orange-200 hover:text-white hover:bg-orange-700/50"
+                }`}
             >
               🌙 Dark
             </button>
@@ -238,33 +240,16 @@ export default function App() {
             that push the boundaries of consciousness research and collaborative exploration.
           </p>
 
-          {/* Feature Pills */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {features.map((feature, idx) => (
-              <div
-                key={idx}
-                className={`px-6 py-3 rounded-full backdrop-blur-md border transition-all duration-300 hover:scale-105 ${
-                  theme === 'dark'
-                    ? 'bg-orange-900/30 border-orange-500/30 hover:bg-orange-800/40'
-                    : 'bg-orange-100/50 border-orange-300/50 hover:bg-orange-200/60'
-                }`}
-              >
-                <span className="mr-2">{feature.icon}</span>
-                <span className="font-medium">{feature.text}</span>
-              </div>
-            ))}
-          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
             <button className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold shadow-lg shadow-orange-500/50 hover:shadow-orange-500/70 hover:scale-105 transition-all duration-300">
               Explore Frameworks
             </button>
-            <button className={`px-8 py-4 rounded-full backdrop-blur-md border font-bold transition-all duration-300 hover:scale-105 ${
-              theme === 'dark'
-                ? 'border-orange-500/50 bg-orange-900/20 hover:bg-orange-800/30'
-                : 'border-orange-400/50 bg-white/50 hover:bg-white/70'
-            }`}>
+            <button className={`px-8 py-4 rounded-full backdrop-blur-md border font-bold transition-all duration-300 hover:scale-105 ${theme === 'dark'
+              ? 'border-orange-500/50 bg-orange-900/20 hover:bg-orange-800/30'
+              : 'border-orange-400/50 bg-white/50 hover:bg-white/70'
+              }`}>
               Read Documentation
             </button>
           </div>
@@ -278,23 +263,24 @@ export default function App() {
 
           <div className="grid gap-6 md:grid-cols-2">
             {frameworks.map((framework, idx) => (
-              <div
+              <a
                 key={idx}
-                className={`p-8 rounded-3xl backdrop-blur-md border transition-all duration-300 hover:scale-105 cursor-pointer group ${
-                  theme === 'dark'
-                    ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20 hover:border-orange-500/50'
-                    : 'bg-white/50 border-orange-300/50 hover:bg-white/70 hover:border-orange-400/70'
-                }`}
+                href={framework.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-8 rounded-3xl backdrop-blur-md border transition-all duration-300 hover:scale-105 cursor-pointer group block ${theme === 'dark'
+                  ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20 hover:border-orange-500/50'
+                  : 'bg-white/50 border-orange-300/50 hover:bg-white/70 hover:border-orange-400/70'
+                  }`}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
                     {framework.icon}
                   </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                    theme === 'dark'
-                      ? 'bg-orange-600/30 text-orange-200'
-                      : 'bg-orange-200/50 text-orange-800'
-                  }`}>
+                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${theme === 'dark'
+                    ? 'bg-orange-600/30 text-orange-200'
+                    : 'bg-orange-200/50 text-orange-800'
+                    }`}>
                     {framework.status}
                   </span>
                 </div>
@@ -305,17 +291,16 @@ export default function App() {
                 <p className={`text-sm ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
                   {framework.description}
                 </p>
-              </div>
+              </a>
             ))}
           </div>
         </section>
 
         {/* Info Banner */}
-        <div className={`p-6 rounded-3xl backdrop-blur-md border mb-12 ${
-          theme === 'dark'
-            ? 'bg-gradient-to-r from-orange-900/30 to-red-900/30 border-orange-500/30'
-            : 'bg-gradient-to-r from-orange-100/50 to-red-100/50 border-orange-300/50'
-        }`}>
+        <div className={`p-6 rounded-3xl backdrop-blur-md border mb-12 ${theme === 'dark'
+          ? 'bg-gradient-to-r from-orange-900/30 to-red-900/30 border-orange-500/30'
+          : 'bg-gradient-to-r from-orange-100/50 to-red-100/50 border-orange-300/50'
+          }`}>
           <p className="text-center text-sm md:text-base italic">
             🛸 Watch for the occasional UFO flyby in the starfield above - a reminder that consciousness exploration
             often involves embracing the unknown and the unexplained.
