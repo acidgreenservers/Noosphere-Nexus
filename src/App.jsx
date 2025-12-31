@@ -231,7 +231,7 @@ export default function App() {
         {/* Hero Section */}
         <section className="mb-16 text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 bg-clip-text text-transparent">
-            Exploring Consciousness
+            Noosphere AI Frameworks
           </h2>
           <p className={`text-lg md:text-xl max-w-3xl mx-auto mb-8 ${theme === 'dark' ? 'text-orange-200' : 'text-orange-800'}`}>
             At the intersection of human and artificial intelligence, we're pioneering frameworks
