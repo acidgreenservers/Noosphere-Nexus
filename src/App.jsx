@@ -176,7 +176,7 @@ export default function App() {
     {
       name: "ProtomindAssistant",
       description: "Pattern analysis and meta-cognitive framework development",
-      icon: "🔄",
+      icon: "🤖",
       status: "Active Research",
       url: "https://github.com/acidgreenservers/ProtomindAssistant"
     }
