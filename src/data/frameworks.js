@@ -5,7 +5,7 @@ export const frameworks = [
         name: "Noosphere Manifold",
         description: "Advanced theoretical framework exploring consciousness as a holographic phenomenon",
         icon: "🧠",
-        status: "Active Research",
+        status: "Active Framework",
         url: "https://github.com/acidgreenservers/Noosphere-Manifold",
         route: "/docs/manifold"
     },
@@ -14,7 +14,7 @@ export const frameworks = [
         name: "Noosphere Garden",
         description: "Systematic approaches for human-AI symbiotic knowledge generation",
         icon: "🌱",
-        status: "In Development",
+        status: "Active Framework",
         url: "https://github.com/acidgreenservers/Noosphere-Garden",
         route: "/docs/garden"
     },
