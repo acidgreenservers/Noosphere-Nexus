@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ManifoldDocs from "./pages/docs/ManifoldDocs";
 import GardenDocs from "./pages/docs/GardenDocs";
+import CultivatedIntelligence from "./pages/docs/CultivatedIntelligence";
 import CodexDocs from "./pages/docs/CodexDocs";
 import ProtomindDocs from "./pages/docs/ProtomindDocs";
 
@@ -170,6 +171,7 @@ export default function App() {
             <Route path="/" element={<Home theme={theme} />} />
             <Route path="/docs/manifold" element={<ManifoldDocs theme={theme} />} />
             <Route path="/docs/garden" element={<GardenDocs theme={theme} />} />
+            <Route path="/docs/garden/cultivated-intelligence" element={<CultivatedIntelligence theme={theme} />} />
             <Route path="/docs/codex" element={<CodexDocs theme={theme} />} />
             <Route path="/docs/protomind" element={<ProtomindDocs theme={theme} />} />
           </Routes>
