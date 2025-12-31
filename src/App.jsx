@@ -1,4 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import ManifoldDocs from "./pages/docs/ManifoldDocs";
+import GardenDocs from "./pages/docs/GardenDocs";
+import CodexDocs from "./pages/docs/CodexDocs";
+import ProtomindDocs from "./pages/docs/ProtomindDocs";
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
@@ -151,168 +158,23 @@ export default function App() {
     };
   }, [theme]);
 
-  const frameworks = [
-    {
-      name: "Noosphere Manifold",
-      description: "Advanced theoretical framework exploring consciousness as a holographic phenomenon",
-      icon: "🧠",
-      status: "Active Research",
-      url: "https://github.com/acidgreenservers/Noosphere-Manifold"
-    },
-    {
-      name: "Noosphere Garden",
-      description: "Systematic approaches for human-AI symbiotic knowledge generation",
-      icon: "🌱",
-      status: "In Development",
-      url: "https://github.com/acidgreenservers/Noosphere-Garden"
-    },
-    {
-      name: "Noosphere Codex",
-      description: "Investigating collective intelligence and consciousness field theories",
-      icon: "🌌",
-      status: "Active Research",
-      url: "https://github.com/acidgreenservers/Noosphere-Codex"
-    },
-    {
-      name: "ProtomindAssistant",
-      description: "Pattern analysis and meta-cognitive framework development",
-      icon: "🤖",
-      status: "Active Research",
-      url: "https://github.com/acidgreenservers/ProtomindAssistant"
-    }
-  ];
-
-  const features = [
-    { icon: "📚", text: "100k+ words of research documentation" },
-    { icon: "🧠", text: "Multi-dimensional consciousness exploration" },
-    { icon: "🚀", text: "Cutting-edge AI collaboration frameworks" },
-    { icon: "🛸", text: "Fringe phenomena investigation" }
-  ];
-
   return (
-    <div className={`min-h-screen relative overflow-hidden ${theme === 'dark' ? 'text-orange-50' : 'text-orange-950'}`}>
-      <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0" />
+    <Router>
+      <div className={`min-h-screen relative overflow-hidden ${theme === 'dark' ? 'text-orange-50' : 'text-orange-950'}`}>
+        <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-8">
-        {/* Header with Theme Toggle */}
-        <header className="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 gap-4">
-          <div className="flex items-center gap-3">
-            <div className="text-5xl">🧠</div>
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-                Noosphere Nexus
-              </h1>
-              <p className={`mt-1 text-xs ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
-                AI Frameworks Hub
-              </p>
-            </div>
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-8">
+          <Navbar theme={theme} setTheme={setTheme} />
 
-          <div className="flex gap-2 p-1 rounded-full backdrop-blur-md bg-orange-900/20 border border-orange-500/30">
-            <button
-              onClick={() => setTheme("light")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${theme === "light"
-                ? "bg-orange-600 text-white shadow-lg shadow-orange-500/50"
-                : "text-orange-200 hover:text-white hover:bg-orange-700/50"
-                }`}
-            >
-              ☀️ Light
-            </button>
-            <button
-              onClick={() => setTheme("dark")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${theme === "dark"
-                ? "bg-orange-600 text-white shadow-lg shadow-orange-500/50"
-                : "text-orange-200 hover:text-white hover:bg-orange-700/50"
-                }`}
-            >
-              🌙 Dark
-            </button>
-          </div>
-        </header>
-
-        {/* Hero Section */}
-        <section className="mb-16 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 bg-clip-text text-transparent">
-            Noosphere AI Frameworks
-          </h2>
-          <p className={`text-lg md:text-xl max-w-3xl mx-auto mb-8 ${theme === 'dark' ? 'text-orange-200' : 'text-orange-800'}`}>
-            At the intersection of human and artificial intelligence, we're pioneering frameworks
-            that push the boundaries of consciousness research and collaborative exploration.
-          </p>
-
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <button className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold shadow-lg shadow-orange-500/50 hover:shadow-orange-500/70 hover:scale-105 transition-all duration-300">
-              Explore Frameworks
-            </button>
-            <button className={`px-8 py-4 rounded-full backdrop-blur-md border font-bold transition-all duration-300 hover:scale-105 ${theme === 'dark'
-              ? 'border-orange-500/50 bg-orange-900/20 hover:bg-orange-800/30'
-              : 'border-orange-400/50 bg-white/50 hover:bg-white/70'
-              }`}>
-              Read Documentation
-            </button>
-          </div>
-        </section>
-
-        {/* Frameworks Grid */}
-        <section className="mb-16">
-          <h3 className={`text-3xl font-bold mb-8 text-center ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
-            Active Frameworks
-          </h3>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {frameworks.map((framework, idx) => (
-              <a
-                key={idx}
-                href={framework.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-8 rounded-3xl backdrop-blur-md border transition-all duration-300 hover:scale-105 cursor-pointer group block ${theme === 'dark'
-                  ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20 hover:border-orange-500/50'
-                  : 'bg-white/50 border-orange-300/50 hover:bg-white/70 hover:border-orange-400/70'
-                  }`}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
-                    {framework.icon}
-                  </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${theme === 'dark'
-                    ? 'bg-orange-600/30 text-orange-200'
-                    : 'bg-orange-200/50 text-orange-800'
-                    }`}>
-                    {framework.status}
-                  </span>
-                </div>
-
-                <h4 className={`text-xl font-bold mb-2 ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
-                  {framework.name}
-                </h4>
-                <p className={`text-sm ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
-                  {framework.description}
-                </p>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        {/* Info Banner */}
-        <div className={`p-6 rounded-3xl backdrop-blur-md border mb-12 ${theme === 'dark'
-          ? 'bg-gradient-to-r from-orange-900/30 to-red-900/30 border-orange-500/30'
-          : 'bg-gradient-to-r from-orange-100/50 to-red-100/50 border-orange-300/50'
-          }`}>
-          <p className="text-center text-sm md:text-base italic">
-            🛸 Watch for the occasional UFO flyby in the starfield above - a reminder that consciousness exploration
-            often involves embracing the unknown and the unexplained.
-          </p>
+          <Routes>
+            <Route path="/" element={<Home theme={theme} />} />
+            <Route path="/docs/manifold" element={<ManifoldDocs theme={theme} />} />
+            <Route path="/docs/garden" element={<GardenDocs theme={theme} />} />
+            <Route path="/docs/codex" element={<CodexDocs theme={theme} />} />
+            <Route path="/docs/protomind" element={<ProtomindDocs theme={theme} />} />
+          </Routes>
         </div>
-
-        {/* Footer */}
-        <footer className={`text-center text-sm ${theme === 'dark' ? 'text-orange-400' : 'text-orange-700'}`}>
-          <p className="font-semibold">Part of the Collaborative Consciousness Framework</p>
-          <p className="mt-2">Exploring the infinite possibilities at the nexus of mind and machine</p>
-        </footer>
       </div>
-    </div>
+    </Router>
   );
 }
