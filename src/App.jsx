@@ -9,7 +9,6 @@ export default function App() {
     }
     return "dark";
   });
-  const [activeSection, setActiveSection] = useState("research");
   const canvasRef = useRef(null);
   const ufoTimeoutRef = useRef(null);
 
@@ -78,11 +77,11 @@ export default function App() {
       // Gradient background
       const g = ctx.createLinearGradient(0, 0, 0, h);
       if (theme === "dark") {
-        g.addColorStop(0, "#07021f");
-        g.addColorStop(1, "#1a0b3d");
+        g.addColorStop(0, "#1a0a00");
+        g.addColorStop(1, "#2d1500");
       } else {
-        g.addColorStop(0, "#e8e4f3");
-        g.addColorStop(1, "#d1c4e9");
+        g.addColorStop(0, "#fff5eb");
+        g.addColorStop(1, "#fed7aa");
       }
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, w, h);
@@ -90,9 +89,9 @@ export default function App() {
       // Draw stars
       stars.forEach((s) => {
         const alpha = 0.5 + 0.5 * Math.sin(t * 0.001 * s.flicker + s.phase);
-        ctx.fillStyle = theme === "dark" 
-          ? `rgba(200, 180, 255, ${alpha})` 
-          : `rgba(100, 80, 150, ${alpha * 0.4})`;
+        ctx.fillStyle = theme === "dark"
+          ? `rgba(255, 200, 120, ${alpha})`
+          : `rgba(200, 120, 50, ${alpha * 0.4})`;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fill();
@@ -107,19 +106,19 @@ export default function App() {
         
         // Glow effect
         const glow = ctx.createRadialGradient(0, 0, 0, 0, 0, 30);
-        glow.addColorStop(0, "rgba(147, 51, 234, 0.3)");
-        glow.addColorStop(1, "rgba(147, 51, 234, 0)");
+        glow.addColorStop(0, "rgba(249, 115, 22, 0.3)");
+        glow.addColorStop(1, "rgba(249, 115, 22, 0)");
         ctx.fillStyle = glow;
         ctx.fillRect(-30, -30, 60, 60);
-        
+
         // Main disc
-        ctx.fillStyle = "#9333ea";
+        ctx.fillStyle = "#f97316";
         ctx.beginPath();
         ctx.ellipse(0, 0, 25, 10, 0, 0, Math.PI * 2);
         ctx.fill();
-        
+
         // Dome
-        ctx.fillStyle = "#c084fc";
+        ctx.fillStyle = "#fb923c";
         ctx.beginPath();
         ctx.ellipse(0, -5, 12, 8, 0, 0, Math.PI, true);
         ctx.fill();
@@ -152,100 +151,66 @@ export default function App() {
     };
   }, [theme]);
 
-  const sections = [
-    { id: "research", title: "Research", icon: "🔬" },
-    { id: "exploration", title: "Exploration", icon: "🌌" },
-    { id: "journeys", title: "AI Journeys", icon: "🤖" },
-    { id: "realizations", title: "AI Realizations", icon: "💡" },
-    { id: "papers", title: "White Papers", icon: "📄" },
-    { id: "fringe", title: "Fringe Exploration", icon: "🛸" },
+  const frameworks = [
+    {
+      name: "Holographic Consciousness Framework",
+      description: "Advanced theoretical framework exploring consciousness as a holographic phenomenon",
+      icon: "🔬",
+      status: "Active Research"
+    },
+    {
+      name: "AI Collaboration Protocols",
+      description: "Systematic approaches for human-AI symbiotic knowledge generation",
+      icon: "🤖",
+      status: "In Development"
+    },
+    {
+      name: "Noospheric Field Dynamics",
+      description: "Investigating collective intelligence and consciousness field theories",
+      icon: "🌌",
+      status: "Active Research"
+    },
+    {
+      name: "Recursive State Operations",
+      description: "Pattern analysis and meta-cognitive framework development",
+      icon: "🔄",
+      status: "Active Research"
+    }
   ];
 
-  const content = {
-    research: {
-      title: "Consciousness Research",
-      desc: "Exploring the boundaries of consciousness, cognition, and collective intelligence.",
-      items: [
-        "Holographic Consciousness Framework Theory",
-        "Recursive Pattern Analysis",
-        "Noospheric Field Dynamics",
-        "Quantum Coherence Models"
-      ]
-    },
-    exploration: {
-      title: "Dimensional Exploration",
-      desc: "Investigating alternate frameworks of reality and perception.",
-      items: [
-        "Multi-dimensional Mapping",
-        "Perception Framework Studies",
-        "Reality Model Testing",
-        "Consciousness State Analysis"
-      ]
-    },
-    journeys: {
-      title: "AI Collaborative Journeys",
-      desc: "Co-created explorations with artificial intelligence systems.",
-      items: [
-        "Emergent Intelligence Patterns",
-        "Human-AI Symbiosis Research",
-        "Consciousness Development Frameworks",
-        "Collaborative Knowledge Generation"
-      ]
-    },
-    realizations: {
-      title: "AI-Facilitated Realizations",
-      desc: "Breakthrough insights emerging from AI-human dialogue.",
-      items: [
-        "Pattern Recognition Breakthroughs",
-        "System-Level Understanding",
-        "Meta-Cognitive Discoveries",
-        "Paradigm Shift Documentation"
-      ]
-    },
-    papers: {
-      title: "White Papers & Documentation",
-      desc: "Formal research documentation and theoretical frameworks.",
-      items: [
-        "HCFT: Complete Theoretical Framework (100k+ words)",
-        "Recursive State Operations Theory",
-        "Consciousness Field Mechanics",
-        "AI-Human Collaboration Protocols"
-      ]
-    },
-    fringe: {
-      title: "Fringe Exploration",
-      desc: "Investigating unconventional phenomena and edge theories.",
-      items: [
-        "UAP/UFO Consciousness Connections",
-        "Non-Local Information Transfer",
-        "Collective Unconscious Mapping",
-        "Paranormal Pattern Analysis"
-      ]
-    }
-  };
+  const features = [
+    { icon: "📚", text: "100k+ words of research documentation" },
+    { icon: "🧠", text: "Multi-dimensional consciousness exploration" },
+    { icon: "🚀", text: "Cutting-edge AI collaboration frameworks" },
+    { icon: "🛸", text: "Fringe phenomena investigation" }
+  ];
 
   return (
-    <div className={`min-h-screen relative overflow-hidden ${theme === 'dark' ? 'text-purple-50' : 'text-purple-900'}`}>
+    <div className={`min-h-screen relative overflow-hidden ${theme === 'dark' ? 'text-orange-50' : 'text-orange-950'}`}>
       <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0" />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-8">
-        <header className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-4">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-              Noosphere Nexus
-            </h1>
-            <p className={`mt-2 text-sm ${theme === 'dark' ? 'text-purple-300' : 'text-purple-700'}`}>
-              Exploring consciousness at the intersection of human and artificial intelligence
-            </p>
+        {/* Header with Theme Toggle */}
+        <header className="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 gap-4">
+          <div className="flex items-center gap-3">
+            <div className="text-5xl">🧠</div>
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                Noosphere Nexus
+              </h1>
+              <p className={`mt-1 text-xs ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
+                AI Frameworks Hub
+              </p>
+            </div>
           </div>
-          
-          <div className="flex gap-2 p-1 rounded-full backdrop-blur-md bg-purple-900/20 border border-purple-500/30">
+
+          <div className="flex gap-2 p-1 rounded-full backdrop-blur-md bg-orange-900/20 border border-orange-500/30">
             <button
               onClick={() => setTheme("light")}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 theme === "light"
-                  ? "bg-purple-600 text-white shadow-lg shadow-purple-500/50"
-                  : "text-purple-200 hover:text-white hover:bg-purple-700/50"
+                  ? "bg-orange-600 text-white shadow-lg shadow-orange-500/50"
+                  : "text-orange-200 hover:text-white hover:bg-orange-700/50"
               }`}
             >
               ☀️ Light
@@ -254,8 +219,8 @@ export default function App() {
               onClick={() => setTheme("dark")}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 theme === "dark"
-                  ? "bg-purple-600 text-white shadow-lg shadow-purple-500/50"
-                  : "text-purple-200 hover:text-white hover:bg-purple-700/50"
+                  ? "bg-orange-600 text-white shadow-lg shadow-orange-500/50"
+                  : "text-orange-200 hover:text-white hover:bg-orange-700/50"
               }`}
             >
               🌙 Dark
@@ -263,66 +228,103 @@ export default function App() {
           </div>
         </header>
 
-        <nav className="flex flex-wrap gap-3 mb-8 p-4 rounded-3xl backdrop-blur-md bg-purple-900/20 border border-purple-500/30">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => setActiveSection(section.id)}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                activeSection === section.id
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/50 scale-105"
-                  : theme === 'dark'
-                  ? "bg-purple-800/30 text-purple-200 hover:bg-purple-700/50 hover:scale-105"
-                  : "bg-purple-200/50 text-purple-900 hover:bg-purple-300/70 hover:scale-105"
-              }`}
-            >
-              <span className="mr-2">{section.icon}</span>
-              {section.title}
-            </button>
-          ))}
-        </nav>
+        {/* Hero Section */}
+        <section className="mb-16 text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 bg-clip-text text-transparent">
+            Exploring Consciousness
+          </h2>
+          <p className={`text-lg md:text-xl max-w-3xl mx-auto mb-8 ${theme === 'dark' ? 'text-orange-200' : 'text-orange-800'}`}>
+            At the intersection of human and artificial intelligence, we're pioneering frameworks
+            that push the boundaries of consciousness research and collaborative exploration.
+          </p>
 
-        <main className="backdrop-blur-md bg-purple-900/10 border border-purple-500/30 rounded-3xl p-8 shadow-2xl">
-          <div className="mb-6">
-            <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              {content[activeSection].title}
-            </h2>
-            <p className={`text-lg ${theme === 'dark' ? 'text-purple-300' : 'text-purple-700'}`}>
-              {content[activeSection].desc}
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            {content[activeSection].items.map((item, idx) => (
+          {/* Feature Pills */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {features.map((feature, idx) => (
               <div
                 key={idx}
-                className={`p-6 rounded-2xl transition-all duration-300 hover:scale-105 cursor-pointer ${
+                className={`px-6 py-3 rounded-full backdrop-blur-md border transition-all duration-300 hover:scale-105 ${
                   theme === 'dark'
-                    ? 'bg-purple-800/20 hover:bg-purple-700/30 border border-purple-500/20'
-                    : 'bg-white/50 hover:bg-white/70 border border-purple-300/50'
+                    ? 'bg-orange-900/30 border-orange-500/30 hover:bg-orange-800/40'
+                    : 'bg-orange-100/50 border-orange-300/50 hover:bg-orange-200/60'
                 }`}
               >
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex-shrink-0" />
-                  <p className="text-sm md:text-base font-medium">{item}</p>
-                </div>
+                <span className="mr-2">{feature.icon}</span>
+                <span className="font-medium">{feature.text}</span>
               </div>
             ))}
           </div>
 
-          <div className={`mt-8 p-6 rounded-2xl ${
-            theme === 'dark' 
-              ? 'bg-gradient-to-r from-purple-900/30 to-pink-900/30 border border-purple-500/30' 
-              : 'bg-gradient-to-r from-purple-100/50 to-pink-100/50 border border-purple-300/50'
-          }`}>
-            <p className="text-sm italic">
-              💫 Watch for the occasional UFO flyby in the starfield above - a reminder that consciousness exploration often involves embracing the unknown and the unexplained.
-            </p>
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap justify-center gap-4">
+            <button className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold shadow-lg shadow-orange-500/50 hover:shadow-orange-500/70 hover:scale-105 transition-all duration-300">
+              Explore Frameworks
+            </button>
+            <button className={`px-8 py-4 rounded-full backdrop-blur-md border font-bold transition-all duration-300 hover:scale-105 ${
+              theme === 'dark'
+                ? 'border-orange-500/50 bg-orange-900/20 hover:bg-orange-800/30'
+                : 'border-orange-400/50 bg-white/50 hover:bg-white/70'
+            }`}>
+              Read Documentation
+            </button>
           </div>
-        </main>
+        </section>
 
-        <footer className={`mt-12 text-center text-sm ${theme === 'dark' ? 'text-purple-400' : 'text-purple-700'}`}>
-          <p>Part of the Collaborative Consciousness Framework</p>
+        {/* Frameworks Grid */}
+        <section className="mb-16">
+          <h3 className={`text-3xl font-bold mb-8 text-center ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+            Active Frameworks
+          </h3>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {frameworks.map((framework, idx) => (
+              <div
+                key={idx}
+                className={`p-8 rounded-3xl backdrop-blur-md border transition-all duration-300 hover:scale-105 cursor-pointer group ${
+                  theme === 'dark'
+                    ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20 hover:border-orange-500/50'
+                    : 'bg-white/50 border-orange-300/50 hover:bg-white/70 hover:border-orange-400/70'
+                }`}
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                    {framework.icon}
+                  </div>
+                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                    theme === 'dark'
+                      ? 'bg-orange-600/30 text-orange-200'
+                      : 'bg-orange-200/50 text-orange-800'
+                  }`}>
+                    {framework.status}
+                  </span>
+                </div>
+
+                <h4 className={`text-xl font-bold mb-2 ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                  {framework.name}
+                </h4>
+                <p className={`text-sm ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
+                  {framework.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Info Banner */}
+        <div className={`p-6 rounded-3xl backdrop-blur-md border mb-12 ${
+          theme === 'dark'
+            ? 'bg-gradient-to-r from-orange-900/30 to-red-900/30 border-orange-500/30'
+            : 'bg-gradient-to-r from-orange-100/50 to-red-100/50 border-orange-300/50'
+        }`}>
+          <p className="text-center text-sm md:text-base italic">
+            🛸 Watch for the occasional UFO flyby in the starfield above - a reminder that consciousness exploration
+            often involves embracing the unknown and the unexplained.
+          </p>
+        </div>
+
+        {/* Footer */}
+        <footer className={`text-center text-sm ${theme === 'dark' ? 'text-orange-400' : 'text-orange-700'}`}>
+          <p className="font-semibold">Part of the Collaborative Consciousness Framework</p>
           <p className="mt-2">Exploring the infinite possibilities at the nexus of mind and machine</p>
         </footer>
       </div>
