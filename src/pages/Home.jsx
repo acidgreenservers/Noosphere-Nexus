@@ -42,7 +42,7 @@ export default function Home({ theme }) {
                             to="/docs/prompting-for-cognition"
                             className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold shadow-lg shadow-orange-500/50 hover:shadow-orange-500/70 hover:scale-105 transition-all duration-300"
                         >
-                            Prompting for Cognition ⚡
+                            Prompt Collection ⚡
                         </Link>
                     </div>
 
