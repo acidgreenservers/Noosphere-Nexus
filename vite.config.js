@@ -6,5 +6,5 @@ import react from '@vitejs/plugin-react'
 // Or use environment variable: base: process.env.VITE_BASE_PATH || '/'
 export default defineConfig({
   plugins: [react()],
-  base: '/Noosphere-Nexus/'
+  base: '/noosphere-nexus/'
 })
