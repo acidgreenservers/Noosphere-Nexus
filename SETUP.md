@@ -39,7 +39,7 @@ To ensure assets load correctly in the subdirectory, `vite.config.js` must match
 // vite.config.js
 export default defineConfig({
   plugins: [react()],
-  base: '/noosphere-nexus/' // Must match https://github.com/acidgreenservers/noosphere-nexus
+  base: '/Noosphere-Nexus/' // Must match https://github.com/acidgreenservers/noosphere-nexus
 })
 ```
 
