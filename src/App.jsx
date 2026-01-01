@@ -7,6 +7,7 @@ import GardenDocs from "./pages/docs/GardenDocs";
 import CultivatedIntelligence from "./pages/docs/CultivatedIntelligence";
 import CodexDocs from "./pages/docs/CodexDocs";
 import ProtomindDocs from "./pages/docs/ProtomindDocs";
+import PromptingDocs from "./pages/docs/PromptingDocs";
 
 import Starfield from "./components/Starfield";
 
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="/docs/garden/cultivated-intelligence" element={<CultivatedIntelligence theme={theme} />} />
             <Route path="/docs/codex" element={<CodexDocs theme={theme} />} />
             <Route path="/docs/protomind" element={<ProtomindDocs theme={theme} />} />
+            <Route path="/docs/prompting-for-cognition" element={<PromptingDocs theme={theme} />} />
           </Routes>
         </div>
       </div>

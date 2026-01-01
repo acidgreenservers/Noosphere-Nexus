@@ -4,9 +4,7 @@ import { frameworks } from "../data/frameworks";
 
 export default function Home({ theme }) {
     const [docsDropdownOpen, setDocsDropdownOpen] = useState(false);
-    const [exploreDropdownOpen, setExploreDropdownOpen] = useState(false);
     const docsDropdownRef = useRef(null);
-    const exploreDropdownRef = useRef(null);
 
     // Close dropdowns when clicking outside
     useEffect(() => {
@@ -14,19 +12,16 @@ export default function Home({ theme }) {
             if (docsDropdownRef.current && !docsDropdownRef.current.contains(event.target)) {
                 setDocsDropdownOpen(false);
             }
-            if (exploreDropdownRef.current && !exploreDropdownRef.current.contains(event.target)) {
-                setExploreDropdownOpen(false);
-            }
         }
 
-        if (docsDropdownOpen || exploreDropdownOpen) {
+        if (docsDropdownOpen) {
             document.addEventListener("mousedown", handleClickOutside);
         }
 
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [docsDropdownOpen, exploreDropdownOpen]);
+    }, [docsDropdownOpen]);
     return (
         <>
             {/* Hero Section */}
@@ -41,96 +36,14 @@ export default function Home({ theme }) {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap justify-center gap-4">
-                    {/* Explore Frameworks Button with Dropdown */}
-                    <div className="relative" ref={exploreDropdownRef}>
-                        <button
-                            onClick={() => setExploreDropdownOpen(!exploreDropdownOpen)}
-                            className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold shadow-lg shadow-orange-500/50 hover:shadow-orange-500/70 hover:scale-105 transition-all duration-300"
+                    {/* Prompting for Cognition Button */}
+                    <div className="relative">
+                        <Link
+                            to="/docs/prompting-for-cognition"
+                            className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold shadow-lg shadow-orange-500/50 hover:shadow-orange-500/70 hover:scale-105 transition-all duration-300"
                         >
-                            Explore Frameworks ▾
-                        </button>
-
-                        {/* Explore Dropdown Menu */}
-                        {exploreDropdownOpen && (
-                            <div
-                                className={`absolute top-full mt-2 left-1/2 -translate-x-1/2 min-w-[320px] rounded-2xl backdrop-blur-md border shadow-xl overflow-hidden z-50 ${theme === 'dark'
-                                    ? 'bg-orange-900/95 border-orange-500/30'
-                                    : 'bg-white/95 border-orange-300/50'
-                                    }`}
-                            >
-                                {/* Manifold */}
-                                <div className={`border-b ${theme === 'dark' ? 'border-orange-500/30' : 'border-orange-300/50'}`}>
-                                    <div className={`px-5 py-3 flex items-center gap-3 ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
-                                        <span className="text-2xl">🧠</span>
-                                        <div className="flex-1">
-                                            <div className="font-bold">Noosphere Manifold</div>
-                                        </div>
-                                    </div>
-                                    <div className="px-5 pb-3 flex gap-2">
-                                        <a
-                                            href="https://github.com/acidgreenservers/Noosphere-Manifold"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            onClick={() => setExploreDropdownOpen(false)}
-                                            className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold text-center transition-all ${theme === 'dark'
-                                                ? 'bg-orange-800/50 hover:bg-orange-700/50 text-orange-100'
-                                                : 'bg-orange-200/50 hover:bg-orange-300/50 text-orange-900'
-                                                }`}
-                                        >
-                                            GitHub
-                                        </a>
-                                        <a
-                                            href="https://huggingface.co/datasets/acidgreenservers/Noosphere-Manifold"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            onClick={() => setExploreDropdownOpen(false)}
-                                            className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold text-center transition-all ${theme === 'dark'
-                                                ? 'bg-orange-800/50 hover:bg-orange-700/50 text-orange-100'
-                                                : 'bg-orange-200/50 hover:bg-orange-300/50 text-orange-900'
-                                                }`}
-                                        >
-                                            Hugging Face
-                                        </a>
-                                    </div>
-                                </div>
-
-                                {/* Garden */}
-                                <div>
-                                    <div className={`px-5 py-3 flex items-center gap-3 ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
-                                        <span className="text-2xl">🌱</span>
-                                        <div className="flex-1">
-                                            <div className="font-bold">Noosphere Garden</div>
-                                        </div>
-                                    </div>
-                                    <div className="px-5 pb-3 flex gap-2">
-                                        <a
-                                            href="https://github.com/acidgreenservers/Noosphere-Garden"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            onClick={() => setExploreDropdownOpen(false)}
-                                            className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold text-center transition-all ${theme === 'dark'
-                                                ? 'bg-orange-800/50 hover:bg-orange-700/50 text-orange-100'
-                                                : 'bg-orange-200/50 hover:bg-orange-300/50 text-orange-900'
-                                                }`}
-                                        >
-                                            GitHub
-                                        </a>
-                                        <a
-                                            href="https://huggingface.co/datasets/acidgreenservers/Noosphere-Garden"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            onClick={() => setExploreDropdownOpen(false)}
-                                            className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold text-center transition-all ${theme === 'dark'
-                                                ? 'bg-orange-800/50 hover:bg-orange-700/50 text-orange-100'
-                                                : 'bg-orange-200/50 hover:bg-orange-300/50 text-orange-900'
-                                                }`}
-                                        >
-                                            Hugging Face
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
+                            Prompting for Cognition ⚡
+                        </Link>
                     </div>
 
                     {/* Documentation Button with Dropdown */}
@@ -250,8 +163,8 @@ export default function Home({ theme }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium backdrop-blur-md border transition-all duration-300 hover:scale-105 ${theme === 'dark'
-                                ? 'bg-gray-900/40 border-gray-500/40 text-gray-200 hover:bg-gray-800/50 hover:border-gray-400/60'
-                                : 'bg-gray-100/60 border-gray-300/50 text-gray-800 hover:bg-gray-200/70 hover:border-gray-400/70'
+                            ? 'bg-gray-900/40 border-gray-500/40 text-gray-200 hover:bg-gray-800/50 hover:border-gray-400/60'
+                            : 'bg-gray-100/60 border-gray-300/50 text-gray-800 hover:bg-gray-200/70 hover:border-gray-400/70'
                             }`}
                     >
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -266,8 +179,8 @@ export default function Home({ theme }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium backdrop-blur-md border transition-all duration-300 hover:scale-105 ${theme === 'dark'
-                                ? 'bg-yellow-900/30 border-yellow-500/40 text-yellow-200 hover:bg-yellow-800/40 hover:border-yellow-400/60'
-                                : 'bg-yellow-100/60 border-yellow-300/50 text-yellow-800 hover:bg-yellow-200/70 hover:border-yellow-400/70'
+                            ? 'bg-yellow-900/30 border-yellow-500/40 text-yellow-200 hover:bg-yellow-800/40 hover:border-yellow-400/60'
+                            : 'bg-yellow-100/60 border-yellow-300/50 text-yellow-800 hover:bg-yellow-200/70 hover:border-yellow-400/70'
                             }`}
                     >
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
