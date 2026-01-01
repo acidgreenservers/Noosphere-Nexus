@@ -160,7 +160,7 @@ export default function App() {
   }, [theme]);
 
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <div className={`min-h-screen relative overflow-hidden ${theme === 'dark' ? 'text-orange-50' : 'text-orange-950'}`}>
         <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0" />
 
