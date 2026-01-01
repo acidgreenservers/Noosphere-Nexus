@@ -23,7 +23,7 @@ export const frameworks = [
         name: "Noosphere Codex",
         description: "Investigating collective intelligence and consciousness field theories",
         icon: "🌌",
-        status: "Active Research",
+        status: "Active Framework",
         url: "https://github.com/acidgreenservers/Noosphere-Codex",
         route: "/docs/codex"
     },
