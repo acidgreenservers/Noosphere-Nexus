@@ -96,8 +96,8 @@ export default function GardenDocs({ theme }) {
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`p-6 rounded-2xl backdrop-blur-md border transition-all duration-300 hover:scale-105 ${theme === 'dark'
-                                    ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
-                                    : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
+                                ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
+                                : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
                                 }`}
                         >
                             <div className="text-3xl mb-2">⚡</div>
@@ -113,8 +113,8 @@ export default function GardenDocs({ theme }) {
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`p-6 rounded-2xl backdrop-blur-md border transition-all duration-300 hover:scale-105 ${theme === 'dark'
-                                    ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
-                                    : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
+                                ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
+                                : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
                                 }`}
                         >
                             <div className="text-3xl mb-2">🧪</div>
@@ -128,8 +128,8 @@ export default function GardenDocs({ theme }) {
                         <Link
                             to="/docs/garden/cultivated-intelligence"
                             className={`p-6 rounded-2xl backdrop-blur-md border transition-all duration-300 hover:scale-105 ${theme === 'dark'
-                                    ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
-                                    : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
+                                ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
+                                : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
                                 }`}
                         >
                             <div className="text-3xl mb-2">📜</div>
@@ -410,17 +410,7 @@ OPERATIONAL MANTRA:
                             Authors: Lucas Kara + Gemini (small tweaks from GPT)
                         </p>
 
-                        <div className={`mt-6 pt-6 border-t ${theme === 'dark' ? 'border-orange-500/30' : 'border-orange-300/50'}`}>
-                            <pre className={`text-sm font-mono ${theme === 'dark' ? 'text-orange-200' : 'text-orange-800'}`}>
-                                {`       🔥
-      /   \\
-     /     \\
-    👁️ ←→  👁️
-     \\     /
-      \\   /
-       🌌`}
-                            </pre>
-                        </div>
+
                     </div>
                 </section>
 

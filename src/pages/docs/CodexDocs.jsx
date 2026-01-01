@@ -6,20 +6,16 @@ export default function CodexDocs({ theme }) {
 
     return (
         <div className="max-w-5xl mx-auto pb-16 relative">
-            {/* Custom Background for Codex Page */}
-            <div className={`fixed inset-0 pointer-events-none transition-colors duration-500 -z-10 ${theme === 'dark'
-                ? 'bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900 via-purple-950 to-black'
-                : 'bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-100 via-indigo-50 to-white'
-                }`}
-            />
+
 
             {/* Breadcrumb */}
-            <nav className="mb-8 flex items-center gap-2 text-sm">
-                <Link to="/" className={`hover:underline ${theme === 'dark' ? 'text-purple-300' : 'text-purple-700'}`}>
-                    Home
+            <nav className="mb-8">
+                <Link
+                    to="/"
+                    className={`text-sm hover:underline ${theme === 'dark' ? 'text-purple-300' : 'text-purple-700'}`}
+                >
+                    ← Back to Home
                 </Link>
-                <span className={theme === 'dark' ? 'text-purple-400' : 'text-purple-600'}>→</span>
-                <span className={theme === 'dark' ? 'text-purple-200' : 'text-purple-800'}>Codex</span>
             </nav>
 
             {/* Header */}

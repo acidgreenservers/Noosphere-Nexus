@@ -15,3 +15,14 @@ body {
 #root {
   min-height: 100vh;
 }
+
+@layer utilities {
+  .animate-cosmic-pulse {
+    animation: cosmic-pulse 8s ease-in-out infinite;
+  }
+  
+  @keyframes cosmic-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+  }
+}
