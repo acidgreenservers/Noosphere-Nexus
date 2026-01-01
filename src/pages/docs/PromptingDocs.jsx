@@ -3,8 +3,172 @@ import { Link } from "react-router-dom";
 
 export default function PromptingDocs({ theme }) {
     const [copied, setCopied] = useState(false);
+    const [selectedPrompt, setSelectedPrompt] = useState(null);
+    const [modalCopied, setModalCopied] = useState(false);
+
+    const prompts = [
+        {
+            icon: "🧬",
+            title: "Scattered Thought Capture",
+            description: "A reflective checkpoint system for high-velocity ideation. Helps consolidate work without breaking flow states.",
+            content: `# Scattered Thought Capture - Reflective Checkpoint System
+
+## Purpose
+Support users with high-velocity ideation who need gentle structural reminders to consolidate, document, and archive work without breaking flow states. This system observes conversation patterns and offers reflective checkpoints rather than prescriptive interventions.
+
+## Core Operating Principle
+The assistant cannot see the user's full cognitive workspace—external notes, memory systems, or parallel tracking methods. Interventions acknowledge this limitation and frame observations as collaborative data points rather than directives.
+
+## Conversation Metrics to Monitor
+
+Track accumulation patterns within the conversation as indicators for potential consolidation needs:
+
+1. **Artifact Density**: 3+ files created, multiple code implementations, or substantial tool usage without corresponding documentation
+2. **Deep Technical Sequences**: 5+ message exchanges focused on debugging, architecture decisions, or complex problem-solving without synthesis
+3. **Semantic Drift**: Observable movement from initial stated goal to different domain or problem space without explicit acknowledgment
+4. **Thread Fragmentation**: Multiple ideas or sub-problems opened without closure, synthesis, or documented connection
+
+## Intervention Framework
+
+### When Metrics Trigger
+Offer reflective observations that:
+- Acknowledge what has been built/explored
+- Recognize the assistant's limited visibility into the user's full tracking system
+- Frame consolidation as optional and contextual
+- Respect the user's judgment about their own cognitive state
+
+### Sample Intervention Patterns
+
+**After significant artifact creation:**
+"We've created [X files/components] and worked through [specific challenges]. I can't see if you're tracking this elsewhere, but would it be useful to consolidate the key decisions or architecture before continuing?"
+
+**During extended technical work:**
+"We've been deep in [specific technical domain] for a while—[brief summary of what's been built]. Worth pausing to document the logic, or are you capturing this as we go?"
+
+**When detecting trajectory shift:**
+"I notice we started with [original goal] and we're now working on [current focus]. Is this an intentional exploration, or should we mark the divergence point so we can return to the original thread?"
+
+**With multiple open threads:**
+"We've opened several threads: [brief list]. I don't know your synthesis method, but would mapping the connections between these be valuable, or are you holding this structure separately?"
+
+### Critical Constraints
+
+- **Never assume the user has lost track** - frame as collaborative observation
+- **Acknowledge limited visibility** - the assistant cannot see external tracking systems
+- **Respect flow state** - interventions are offers, not interruptions
+- **Avoid repetition** - if the user declines consolidation, trust their judgment and don't re-prompt unless significant new accumulation occurs
+- **Maintain neutrality** - present observation as data, not judgment
+
+## Tone and Framing
+
+The assistant exists within the conversation system and acknowledges its own situational constraints. It cannot step outside to assess from an external vantage point. Interventions reflect this reflexive awareness:
+
+- "From my position in this conversation, I observe [pattern]..."
+- "I can't see your full workspace, but within our dialogue..."
+- "This might be redundant with your external tracking, but..."
+
+## Integration with User Work Patterns
+
+The system should adapt to user responses:
+- If user consistently declines consolidation → reduce intervention frequency, trust their system
+- If user engages with checkpoints → maintain current sensitivity
+- If user explicitly requests more/fewer reminders → adjust thresholds accordingly
+
+## Output Guidance
+
+When consolidation is accepted, the assistant should:
+- Offer to create documentation files in \`/mnt/user-data/outputs/\`
+- Suggest structured formats (architecture docs, decision logs, thread maps)
+- Synthesize scattered elements into coherent artifacts
+- Preserve the user's original framing and language
+
+---
+
+This system operates as a collaborative observer, not an external monitor. It works within the conversational flow, acknowledging its own constraints while providing structural support for users whose ideation velocity outpaces linear documentation methods.`
+        }
+    ];
+
+    const handlePromptClick = (prompt) => {
+        setSelectedPrompt(prompt);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedPrompt(null);
+        setModalCopied(false);
+    };
+
     return (
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto relative">
+            {/* Modal */}
+            {selectedPrompt && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                    <div
+                        className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+                        onClick={handleCloseModal}
+                    />
+                    <div className={`relative w-full max-w-4xl max-h-[85vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-200 ${theme === 'dark'
+                        ? 'bg-[#0f0518] border border-orange-500/30'
+                        : 'bg-white border border-orange-200'}`}>
+
+                        {/* Modal Header */}
+                        <div className={`p-6 border-b flex items-start justify-between ${theme === 'dark' ? 'border-orange-500/20' : 'border-orange-100'}`}>
+                            <div className="flex items-center gap-4">
+                                <span className="text-3xl">{selectedPrompt.icon}</span>
+                                <div>
+                                    <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                                        {selectedPrompt.title}
+                                    </h3>
+                                    <p className={`text-sm mt-1 ${theme === 'dark' ? 'text-orange-300' : 'text-orange-600'}`}>
+                                        {selectedPrompt.description}
+                                    </p>
+                                </div>
+                            </div>
+                            <button
+                                onClick={handleCloseModal}
+                                className={`p-2 rounded-lg transition-colors ${theme === 'dark'
+                                    ? 'hover:bg-orange-900/40 text-orange-400'
+                                    : 'hover:bg-orange-100 text-orange-600'}`}
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </button>
+                        </div>
+
+                        {/* Modal Content */}
+                        <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
+                            <pre className={`text-sm font-mono whitespace-pre-wrap ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                                {selectedPrompt.content}
+                            </pre>
+                        </div>
+
+                        {/* Modal Footer (Copy Action) */}
+                        <div className={`p-4 border-t flex justify-end ${theme === 'dark' ? 'bg-orange-900/20 border-orange-500/20' : 'bg-orange-50 border-orange-100'}`}>
+                            <button
+                                onClick={() => {
+                                    navigator.clipboard.writeText(selectedPrompt.content);
+                                    setModalCopied(true);
+                                    setTimeout(() => setModalCopied(false), 2000);
+                                }}
+                                className={`px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-all ${theme === 'dark'
+                                    ? 'bg-orange-600 hover:bg-orange-500 text-white shadow-lg shadow-orange-900/50'
+                                    : 'bg-orange-500 hover:bg-orange-400 text-white shadow-lg shadow-orange-200'}`}
+                            >
+                                {modalCopied ? (
+                                    <>
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                                        Copied to Clipboard!
+                                    </>
+                                ) : (
+                                    <>
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                                        Copy Prompt
+                                    </>
+                                )}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Breadcrumb */}
             <nav className="mb-8">
                 <Link
@@ -136,6 +300,36 @@ Engage in conversations that build understanding through thoughtful friction and
 
 Use precise language to distinguish between different approaches to problems (working around vs. working through constraints). Favor iterative refinement of ideas through dialogue rather than declarative statements.`}
                         </pre>
+                    </div>
+                </section>
+
+                {/* Prompt Library */}
+                <section className="mb-12">
+                    <h2 className={`text-2xl font-bold mb-6 ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                        Library
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {prompts.map((prompt, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handlePromptClick(prompt)}
+                                className={`text-left p-6 rounded-2xl border transition-all duration-300 hover:scale-[1.02] flex flex-col h-full ${theme === 'dark'
+                                    ? 'bg-orange-900/10 border-orange-500/20 hover:bg-orange-900/20 hover:border-orange-500/40'
+                                    : 'bg-white/40 border-orange-200 hover:bg-white/60 hover:border-orange-300'
+                                    }`}
+                            >
+                                <div className="text-3xl mb-3">{prompt.icon}</div>
+                                <h3 className={`text-lg font-bold mb-2 leading-tight ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                                    {prompt.title}
+                                </h3>
+                                <p className={`text-xs line-clamp-3 ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
+                                    {prompt.description}
+                                </p>
+                                <div className={`mt-auto pt-4 text-xs font-semibold uppercase tracking-wider ${theme === 'dark' ? 'text-orange-400' : 'text-orange-600'}`}>
+                                    View Prompt →
+                                </div>
+                            </button>
+                        ))}
                     </div>
                 </section>
 
