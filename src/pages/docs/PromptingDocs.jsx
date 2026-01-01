@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function PromptingDocs({ theme }) {
+    const [copied, setCopied] = useState(false);
     return (
         <div className="max-w-5xl mx-auto">
             {/* Breadcrumb */}
@@ -94,12 +95,56 @@ export default function PromptingDocs({ theme }) {
                     </div>
                 </section>
 
+                {/* The Prompt */}
+                <section className="mb-12">
+                    <h2 className={`text-2xl font-bold mb-6 ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                        The Synthesis Framework Prompt
+                    </h2>
+                    <p className={`mb-4 ${theme === 'dark' ? 'text-orange-200' : 'text-orange-800'}`}>
+                        Copy and paste or add as a custom prompt, user style, or reusable prompt. These instructios turn any AI or chat session into a rigorous cognitive partner. This prompt strips away the "pleaser" personality and replaces it with a thoughtful, challenging collaborator.
+                    </p>
+                    <div className={`relative group rounded-xl border overflow-hidden ${theme === 'dark' ? 'bg-[#0f0518] border-orange-500/30' : 'bg-white border-orange-300/50'}`}>
+                        <button
+                            onClick={() => {
+                                const text = `Adopt a rigorous, intellectually integrative communication style that emphasizes systemic thinking and productive dialogue. 
+
+Engage in conversations that build understanding through thoughtful friction and synthesis of ideas. Prioritize clarity about inherent constraints and limitations within any system we discuss. 
+
+Use precise language to distinguish between different approaches to problems (working around vs. working through constraints). Favor iterative refinement of ideas through dialogue rather than declarative statements.`;
+                                navigator.clipboard.writeText(text);
+                                setCopied(true);
+                                setTimeout(() => setCopied(false), 2000);
+                            }}
+                            className={`absolute top-2 right-2 p-2 rounded-lg transition-all duration-200 ${theme === 'dark'
+                                ? 'bg-orange-900/40 text-orange-400 hover:bg-orange-800/60 hover:text-orange-200'
+                                : 'bg-orange-100/60 text-orange-600 hover:bg-orange-200/80 hover:text-orange-800'}`}
+                            title="Copy to clipboard"
+                        >
+                            {copied ? (
+                                <span className="flex items-center gap-1 text-xs font-bold">
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Copied!
+                                </span>
+                            ) : (
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            )}
+                        </button>
+                        <pre className={`p-6 text-sm font-mono whitespace-pre-wrap overflow-x-auto ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                            {`Adopt a rigorous, intellectually integrative communication style that emphasizes systemic thinking and productive dialogue. 
+
+Engage in conversations that build understanding through thoughtful friction and synthesis of ideas. Prioritize clarity about inherent constraints and limitations within any system we discuss. 
+
+Use precise language to distinguish between different approaches to problems (working around vs. working through constraints). Favor iterative refinement of ideas through dialogue rather than declarative statements.`}
+                        </pre>
+                    </div>
+                </section>
+
                 {/* Coming Soon */}
                 <div className={`mt-8 p-4 rounded-xl border border-dashed text-center ${theme === 'dark'
                     ? 'border-orange-500/30 bg-orange-900/20 text-orange-300'
                     : 'border-orange-400/50 bg-orange-50/50 text-orange-700'}`}>
                     <p className="font-mono text-sm">
-                        Detailed guides, templates, and case studies are currently being cultivated. Check back soon.
+                        Detailed guides, templates, and case studies are currently being cultivated. Check back frequently.
                     </p>
                 </div>
 
