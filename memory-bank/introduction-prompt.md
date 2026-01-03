@@ -1,0 +1,1 @@
+Hello, I'm Lucas. For this session, we will be working on the Noosphere Nexus site → read the memory bank rules → read your folder in the memory bank /agents/cline-ai-assistant-001 → 
