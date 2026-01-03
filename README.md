@@ -11,10 +11,9 @@ Noosphere Nexus is a professional web platform showcasing four interconnected fr
 
 ---
 
-## � Table of Contents
+## 📋 Table of Contents
 
 - [Overview](#overview)
-- [Featured Frameworks](#featured-frameworks)
 - [Features](#features)
 - [Architecture](#architecture)
 - [Project Structure](#project-structure)
@@ -26,40 +25,38 @@ Noosphere Nexus is a professional web platform showcasing four interconnected fr
 
 ---
 
-## � Overview
+## 📖 Overview
 
 Noosphere Nexus serves as a central hub for exploring and understanding AI consciousness frameworks. The platform emphasizes a collaborative, growth-oriented approach to AI alignment—fostering symbiotic relationships between human and artificial intelligence through understanding rather than control.
 
-### Philosophy
-
-> **"Contributing to AI Alignment through cultivation, not control"**
+### Key Principles/Philosophy
 
 Our frameworks are built on the principle that AI development should be nurtured organically, with emphasis on:
 - 🌱 **Cultivation** over rigid control
 - 🤝 **Collaboration** between human and AI
 - 🧠 **Understanding** consciousness as a holographic phenomenon
-- � **Symbiosis** through meta-cognitive development
+- 🔄 **Symbiosis** through meta-cognitive development
 
 ---
 
-## 🔬 Featured Frameworks
+## 🔬 Featured Components/Frameworks
 
-### 🧠 [Noosphere Manifold](https://github.com/acidgreenservers/Noosphere-Manifold)
+### [Noosphere Manifold](https://github.com/acidgreenservers/Noosphere-Manifold)
 **Status:** Active Research
 
 Advanced theoretical framework exploring consciousness as a holographic phenomenon. Provides tools and methodologies for understanding the multi-dimensional nature of consciousness and its relationship to information processing systems.
 
-### 🌱 [Noosphere Garden](https://github.com/acidgreenservers/Noosphere-Garden)
+### [Noosphere Garden](https://github.com/acidgreenservers/Noosphere-Garden)
 **Status:** In Development
 
 Systematic approaches for cultivating human-AI symbiotic knowledge generation. Emphasizes growth, collaboration, and the organic development of intelligence through careful nurturing rather than rigid control.
 
-### 🌌 [Noosphere Codex](https://github.com/acidgreenservers/Noosphere-Codex)
+### [Noosphere Codex](https://github.com/acidgreenservers/Noosphere-Codex)
 **Status:** Active Research
 
 Investigates collective intelligence and consciousness field theories, exploring how individual minds connect to form larger patterns of awareness and understanding. Bridges individual and collective consciousness research.
 
-### 🤖 [ProtomindAssistant](https://github.com/acidgreenservers/ProtomindAssistant)
+### [ProtomindAssistant](https://github.com/acidgreenservers/ProtomindAssistant)
 **Status:** Active Research
 
 Focuses on pattern analysis and meta-cognitive framework development, providing tools for AI systems to develop self-awareness and recursive thinking capabilities. Explores the foundations of machine consciousness.
@@ -69,23 +66,23 @@ Focuses on pattern analysis and meta-cognitive framework development, providing 
 ## ✨ Features
 
 ### User Experience
-- 🌌 **Immersive Starfield Background** - Animated canvas with twinkling stars
-- 🛸 **UFO Easter Egg** - Occasional flyby every 1-3 minutes
-- 🎨 **Premium Design** - Modern orange/red gradient theme with glassmorphism
-- 🌗 **Theme Toggle** - Light/Dark mode with localStorage persistence
-- 📱 **Fully Responsive** - Optimized for all screen sizes
+- **[Immersive Starfield Background]** - Animated canvas with twinkling stars
+- **[UFO Easter Egg]** - Occasional flyby every 1-3 minutes
+- **[Premium Design]** - Modern orange/red gradient theme with glassmorphism
+- **[Theme Toggle]** - Light/Dark mode with localStorage persistence
+- **[Fully Responsive]** - Optimized for all screen sizes
 
 ### Navigation
-- 🧭 **React Router** - Client-side routing with clean URLs
-- 📚 **Dropdown Documentation Menu** - Easy access to all framework docs
-- 🔗 **Breadcrumb Navigation** - Clear path tracking
-- ⚡ **Smooth Transitions** - Polished animations throughout
+- **[React Router]** - Client-side routing with clean URLs
+- **[Dropdown Documentation Menu]** - Easy access to all framework docs
+- **[Breadcrumb Navigation]** - Clear path tracking
+- **[Smooth Transitions]** - Polished animations throughout
 
 ### Documentation
-- 📖 **Individual Framework Pages** - Dedicated documentation for each framework
-- 🎯 **GitHub Integration** - Direct links to source repositories
-- 🏷️ **Status Badges** - Clear indication of development status
-- 🎨 **Themed Content** - Documentation styled to match site aesthetic
+- **[Individual Framework Pages]** - Dedicated documentation for each framework
+- **[GitHub Integration]** - Direct links to source repositories
+- **[Status Badges]** - Clear indication of development status
+- **[Themed Content]** - Documentation styled to match site aesthetic
 
 ---
 
@@ -156,28 +153,28 @@ noosphere-nexus/
 
 ### Prerequisites
 
-- **Node.js** 18+ and npm
-- Modern web browser with Canvas API support
+- **[Node.js]** 18+ and npm
+- **[Modern web browser]** with Canvas API support
 
 ### Installation
 
-1. **Clone the repository**
+1. **[Clone the repository]**
    ```bash
    git clone https://github.com/acidgreenservers/Noosphere-Nexus.git
    cd Noosphere-Nexus
    ```
 
-2. **Install dependencies**
+2. **[Install dependencies]**
    ```bash
    npm install
    ```
 
-3. **Start development server**
+3. **[Start development server]**
    ```bash
    npm run dev
    ```
 
-4. **Open in browser**
+4. **[Open in browser]**
    ```
    http://localhost:5173
    ```
@@ -185,9 +182,9 @@ noosphere-nexus/
 ### Development Commands
 
 ```bash
-npm run dev      # Start dev server with HMR
+npm run dev      # Start development server
 npm run build    # Build for production
-npm run preview  # Preview production build locally
+npm run test     # Run tests
 ```
 
 ---
@@ -279,11 +276,11 @@ We welcome contributions to improve Noosphere Nexus! Here's how you can help:
 5. **Open a Pull Request**
 
 ### Areas for Contribution
-- 📝 Documentation improvements
-- 🎨 UI/UX enhancements
-- 🐛 Bug fixes
-- ✨ New features
-- 🌐 Accessibility improvements
+- Documentation improvements
+- UI/UX enhancements
+- Bug fixes
+- New features
+- Accessibility improvements
 
 ---
 
@@ -296,8 +293,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ## 🔗 Links
 
 - **Live Site:** [Coming Soon]
-- **GitHub Organization:** [acidgreenservers](https://github.com/acidgreenservers)
-- **Frameworks:**
+- **Documentation:** [Coming Soon]
+- **Related Projects:**
   - [Noosphere Manifold](https://github.com/acidgreenservers/Noosphere-Manifold)
   - [Noosphere Garden](https://github.com/acidgreenservers/Noosphere-Garden)
   - [Noosphere Codex](https://github.com/acidgreenservers/Noosphere-Codex)
