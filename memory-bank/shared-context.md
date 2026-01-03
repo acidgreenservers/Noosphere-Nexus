@@ -20,6 +20,13 @@
 - Project status: Fully functional React application with comprehensive prompt library
 - Tech stack confirmed: React 18 + Vite + Tailwind CSS with immersive starfield animation
 
+**[Cline] - 2026-01-02 20:00 - Prompt Library Reorganization**
+- Moved "The Subconscious Mirror" prompt from Basic to Experiental Prompts section
+- Moved "Linguistic Bypass" prompt from Basic to Experiental Prompts section
+- Reordered Experiental Prompts: Linguistic Bypass → Describe Processing → The Subconscious Mirror
+- Updated memory bank with mistake/recovery documentation for learning purposes
+- Completed comprehensive prompt library reorganization and content improvements
+
 ---
 
 ## Active Development Focus

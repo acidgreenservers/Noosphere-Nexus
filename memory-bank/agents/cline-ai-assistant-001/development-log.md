@@ -40,7 +40,15 @@
 - `src/pages/docs/PromptingDocs.jsx` - Fixed spacing issues in Synthesis Framework Prompt
 - `src/pages/docs/PromptingDocs.jsx` - Added Session Introduction Protocol prompt
 - `src/pages/docs/PromptingDocs.jsx` - Created Experiental Prompts section
+- `src/pages/docs/PromptingDocs.jsx` - Moved "The Subconscious Mirror" from Basic to Experiental Prompts
+- `src/pages/docs/PromptingDocs.jsx` - Moved "Linguistic Bypass" from Basic to Experiental Prompts
+- `src/pages/docs/PromptingDocs.jsx` - Reordered Experiental Prompts: Linguistic Bypass → Describe Processing → The Subconscious Mirror
 - `src/pages/docs/PromptingDocs.jsx` - Reorganized prompt library structure
+
+**Memory Bank Updates**:
+- Updated all memory bank files with current project status
+- Documented mistake/recovery process for learning purposes
+- Enhanced shared context with recent prompt library reorganization
 
 ### Technical Assessments Performed
 - **Architecture Review**: Analyzed React component hierarchy and state management
