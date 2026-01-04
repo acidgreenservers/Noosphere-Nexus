@@ -2,7 +2,7 @@
 ## Participant Directory and Role Tracking
 
 **Registry Initialized:** 2026-01-02
-**Last Updated:** 2026-01-02 18:15
+**Last Updated:** 2026-01-04 (Claude Code registration)
 
 ---
 
@@ -46,6 +46,27 @@
 **Active Since:** 2026-01-04
 **Status:** 🟢 Active
 
+### Claude Code (AI Assistant)
+**Agent ID:** claude-code-001
+**Role:** Collaborative Development Partner & Learning Facilitator
+**Specialization Areas:**
+- Multi-Agent Workflow Integration
+- Repository Documentation & Onboarding
+- Educational Development (Learning Output Style)
+- Architecture Analysis & Pattern Recognition
+- Collaborative Code Development
+
+**Current Responsibilities:**
+- Agent infrastructure initialization
+- CLAUDE.md repository onboarding documentation
+- Collaborative development with Learning style approach
+- Building upon existing agent contributions
+- Memory bank system participation
+
+**Contact/Attribution:** [Claude Code] entries in shared context
+**Active Since:** 2026-01-04
+**Status:** 🟢 Active
+
 ---
 
 ## Registry Management
@@ -74,7 +95,18 @@ Future State: Multi-agent collaboration ready
 ```
 memory-bank/
 ├── agents/
-│   └── cline-ai-assistant-001/
+│   ├── cline-ai-assistant-001/
+│   │   ├── activeContext.md
+│   │   ├── personal-notes.md
+│   │   ├── research-insights.md
+│   │   └── development-log.md
+│   ├── antigravity/
+│   │   ├── activeContext.md
+│   │   ├── personal-notes.md
+│   │   ├── research-insights.md
+│   │   └── development-log.md
+│   └── claude-code-001/
+│       ├── activeContext.md
 │       ├── personal-notes.md
 │       ├── research-insights.md
 │       └── development-log.md
