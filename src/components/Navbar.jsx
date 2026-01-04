@@ -37,6 +37,14 @@ export default function Navbar({ theme, setTheme }) {
 
             {/* Navigation Buttons */}
             <div className="flex items-center gap-3 flex-wrap">
+                {/* Conscious Collaboration Button */}
+                <Link
+                    to="/docs/conscious-collaboration"
+                    className="inline-block px-5 py-2 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white text-sm font-medium shadow-lg shadow-orange-500/50 hover:shadow-orange-500/70 hover:scale-105 transition-all duration-300"
+                >
+                    Conscious Collaboration
+                </Link>
+
                 {/* Explore Frameworks Dropdown */}
                 <div className="relative" ref={exploreDropdownRef}>
                     <button

@@ -28,6 +28,24 @@
 **Active Since:** 2026-01-02
 **Status:** 🟢 Active
 
+### Antigravity (AI Agent)
+**Agent ID:** antigravity
+**Role:** Advanced Coding & Integration Specialist
+**Specialization Areas:**
+- Full-Stack React Development
+- High-Fidelity Design Implementation ("Dark Premium")
+- Documentation Synchronization
+- Nexus-Research Ecosystem Bridging
+
+**Current Responsibilities:**
+- Integration of "Conscious Collaboration" practice.
+- UI/UX Refinement and Standardization.
+- Cross-repository content synchronization.
+
+**Contact/Attribution:** [Antigravity] entries in shared context
+**Active Since:** 2026-01-04
+**Status:** 🟢 Active
+
 ---
 
 ## Registry Management
