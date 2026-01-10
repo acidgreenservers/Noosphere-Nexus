@@ -107,6 +107,9 @@ The Noosphere Nexus platform is **complete and fully operational**. All core fea
 - [x] Added Digital Erasure ethics paper hyperlink
 - [x] Moved Conscious Collaboration button to header navbar
 - [x] Completed full Conscious Collaboration documentation (100% content migration)
+- [x] Renamed "The Synthesis Framework Prompt" to "The Learning With Friction Prompt"
+- [x] Added "Observation-First Collapse" and "Collapse After Observing" prompts to Basic section
+- [x] Created "Communication Quality" documentation page and integrated into Home/Garden
 - [ ] Ongoing prompt library expansion and optimization
 
 ## Future Enhancement Opportunities 🚀

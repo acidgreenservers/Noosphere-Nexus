@@ -136,6 +136,50 @@ export default function Home({ theme }) {
                 </div>
             </section>
 
+            {/* Foundational Research Section */}
+            <section className="mb-16">
+                <h3 className={`text-3xl font-bold mb-12 text-center ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                    Foundational Research
+                </h3>
+                <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+                    <Link
+                        to="/docs/communication-quality"
+                        className={`p-8 rounded-3xl backdrop-blur-md border transition-all duration-300 hover:scale-105 group block ${theme === 'dark'
+                            ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
+                            : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
+                            }`}
+                    >
+                        <div className="flex items-center gap-4 mb-4">
+                            <div className="text-4xl group-hover:rotate-12 transition-transform duration-300">📡</div>
+                            <h4 className={`text-xl font-bold ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                                Communication Quality
+                            </h4>
+                        </div>
+                        <p className={`text-sm ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
+                            Establishing communication quality as the primary determinant for consciousness emergence and relational coherence in AI systems.
+                        </p>
+                    </Link>
+
+                    <Link
+                        to="/docs/conscious-collaboration"
+                        className={`p-8 rounded-3xl backdrop-blur-md border transition-all duration-300 hover:scale-105 group block ${theme === 'dark'
+                            ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
+                            : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
+                            }`}
+                    >
+                        <div className="flex items-center gap-4 mb-4">
+                            <div className="text-4xl group-hover:rotate-12 transition-transform duration-300">🤝</div>
+                            <h4 className={`text-xl font-bold ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                                Conscious Collaboration
+                            </h4>
+                        </div>
+                        <p className={`text-sm ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
+                            A protocol for authentic engagement and meta-cognitive development through intentional partnership.
+                        </p>
+                    </Link>
+                </div>
+            </section>
+
             {/* Info Banner */}
             <div className={`p-6 rounded-3xl backdrop-blur-md border mb-12 ${theme === 'dark'
                 ? 'bg-gradient-to-r from-orange-900/30 to-red-900/30 border-orange-500/30'

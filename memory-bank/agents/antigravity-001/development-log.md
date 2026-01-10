@@ -1,5 +1,15 @@
 # Development Log: Antigravity
 
+## 2026-01-09
+
+### prompt-library-expansion
+- **Task:** Update the Prompting documentation by renaming a core prompt and adding two new foundational prompts.
+- **Implementation:**
+    - Renamed "**The Synthesis Framework Prompt**" to "**The Learning With Friction Prompt**" in `PromptingDocs.jsx`.
+    - Integrated "**Observation-First Collapse**" (Icon: 👁️) and "**Collapse After Observing**" (Icon: 🌌) into the Basic Prompts section.
+    - Updated memory bank files (shared-context, progress, activeContext) to reflect these improvements.
+- **Result:** The prompt library now includes more granular tools for cognitive partnership, aligning with the "cultivation over control" philosophy.
+
 ## 2026-01-04
 
 ### conscious-collaboration-restyle
