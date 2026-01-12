@@ -30,7 +30,9 @@ export default function Navbar({ theme, setTheme }) {
 
                 {/* AI Archival System Button */}
                 <a
-                    href="#"
+                    href="https://acidgreenservers.github.io/Noosphere-Reflect/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`px-5 py-2 rounded-full text-sm font-medium backdrop-blur-md border transition-all duration-300 hover:scale-105 ${theme === 'dark'
                         ? 'bg-emerald-900/30 border-emerald-500/40 text-emerald-200 hover:bg-emerald-800/40 hover:border-emerald-400/60'
                         : 'bg-emerald-100/60 border-emerald-300/50 text-emerald-800 hover:bg-emerald-200/70 hover:border-emerald-400/70'
