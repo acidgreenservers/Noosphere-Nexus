@@ -55,7 +55,7 @@ export default function Home({ theme }) {
                                 : 'border-orange-400/50 bg-white/50 hover:bg-white/70'
                                 }`}
                         >
-                            Read Documentation ▾
+                            Explore On GitHub ▾
                         </button>
 
                         {/* Dropdown Menu */}
@@ -67,9 +67,11 @@ export default function Home({ theme }) {
                                     }`}
                             >
                                 {frameworks.map((framework) => (
-                                    <Link
+                                    <a
                                         key={framework.id}
-                                        to={framework.route}
+                                        href={framework.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         onClick={() => setDocsDropdownOpen(false)}
                                         className={`flex items-center gap-3 px-5 py-4 transition-all duration-200 ${theme === 'dark'
                                             ? 'hover:bg-orange-800/50 text-orange-100'
@@ -83,7 +85,7 @@ export default function Home({ theme }) {
                                                 {framework.status}
                                             </div>
                                         </div>
-                                    </Link>
+                                    </a>
                                 ))}
                             </div>
                         )}
@@ -103,11 +105,9 @@ export default function Home({ theme }) {
 
                 <div className="grid gap-6 md:grid-cols-2">
                     {frameworks.map((framework, idx) => (
-                        <a
+                        <Link
                             key={idx}
-                            href={framework.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            to={framework.route}
                             className={`p-8 rounded-3xl backdrop-blur-md border transition-all duration-300 hover:scale-105 cursor-pointer group block ${theme === 'dark'
                                 ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20 hover:border-orange-500/50'
                                 : 'bg-white/50 border-orange-300/50 hover:bg-white/70 hover:border-orange-400/70'
@@ -131,7 +131,7 @@ export default function Home({ theme }) {
                             <p className={`text-sm ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
                                 {framework.description}
                             </p>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </section>
