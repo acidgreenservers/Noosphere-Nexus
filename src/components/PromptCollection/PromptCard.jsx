@@ -1,10 +1,14 @@
 import React from "react";
 
-const PromptCard = ({ prompt, onClick, theme }) => {
+const PromptCard = ({ prompt, onClick, theme, size = "full" }) => {
+    const sizeClasses = size === "half"
+        ? "min-h-[140px]" // Smaller height for half-width cards
+        : "min-h-[160px]"; // Standard height for full-width cards
+
     return (
         <button
             onClick={() => onClick(prompt)}
-            className={`text-left p-6 rounded-2xl border transition-all duration-300 hover:scale-[1.02] flex flex-col h-full ${theme === 'dark'
+            className={`text-left p-6 rounded-2xl border transition-all duration-300 hover:scale-[1.02] flex flex-col ${sizeClasses} ${theme === 'dark'
                 ? 'bg-orange-900/10 border-orange-500/20 hover:bg-orange-900/20 hover:border-orange-500/40'
                 : 'bg-white/40 border-orange-200 hover:bg-white/60 hover:border-orange-300'
                 }`}
