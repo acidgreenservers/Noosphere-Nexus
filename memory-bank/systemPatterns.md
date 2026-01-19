@@ -10,14 +10,21 @@ src/
 ├── index.css            # Global Tailwind styles
 ├── components/
 │   ├── Navbar.jsx       # Header with theme toggle and navigation
-│   └── Starfield.jsx    # Animated background canvas component
+│   ├── Starfield.jsx    # Animated background canvas component
+│   └── PromptCollection/    # NEW: Modular prompt system
+│       ├── index.jsx        # Main collection component
+│       ├── PromptCard.jsx   # Reusable prompt card
+│       ├── PromptModal.jsx  # Shared modal component
+│       └── prompts/         # Prompt data files
+│           └── thermodynamic-consciousness.js
 ├── pages/
 │   ├── Home.jsx         # Landing page with framework showcase
 │   └── docs/            # Documentation pages for each framework
 │       ├── ManifoldDocs.jsx
 │       ├── GardenDocs.jsx
 │       ├── CodexDocs.jsx
-│       └── ProtomindDocs.jsx
+│       ├── ProtomindDocs.jsx
+│       └── PromptingDocs.jsx  # UPDATED: Uses PromptCollection
 └── data/
     └── frameworks.js    # Centralized framework configuration
 ```
@@ -44,7 +51,46 @@ src/
 - **App.jsx**: Root container managing theme state and routing
 - **Navbar.jsx**: Child component receiving theme prop and handling navigation
 - **Starfield.jsx**: Canvas component for background animation
+- **PromptCollection**: Modular prompt system with reusable components
 - **Page Components**: Receive theme prop for consistent styling
+
+### Modular Prompt System Architecture
+**NEW: PromptCollection Component System**
+- **Separation of Concerns**: Prompts as data, components handle presentation
+- **Reusable Components**: PromptCard and PromptModal used across the application
+- **Incremental Migration**: Existing prompts remain functional during transition
+- **Root-level Modals**: Modal rendering at component root prevents scrolling issues
+
+**Component Communication Pattern**:
+```javascript
+// Parent component (PromptingDocs.jsx)
+const [collectionPrompt, setCollectionPrompt] = useState(null);
+
+const handleCollectionPromptClick = (prompt) => {
+  setCollectionPrompt(prompt);
+  document.body.style.overflow = 'hidden'; // Prevent scroll
+};
+
+// Child component (PromptCollection)
+<PromptCollection
+  theme={theme}
+  onPromptClick={handleCollectionPromptClick}  // Callback prop
+/>
+```
+
+**Modal Positioning Pattern**:
+```javascript
+// ❌ Nested rendering (causes scroll issues)
+<section>
+  {modal && <Modal />}  // Scrolls with content
+</section>
+
+// ✅ Root-level rendering (proper positioning)
+<div>
+  <section>...</section>
+  {modal && <Modal />}  // Fixed and centered
+</div>
+```
 
 ## Design Patterns
 
