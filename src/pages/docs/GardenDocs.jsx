@@ -125,21 +125,37 @@ export default function GardenDocs({ theme }) {
                                 Test your new partner's cognition and ethics
                             </p>
                         </a>
-                        <Link
-                            to="/docs/garden/cultivated-intelligence"
-                            className={`p-6 rounded-2xl backdrop-blur-md border transition-all duration-300 hover:scale-105 ${theme === 'dark'
-                                ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
-                                : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
-                                }`}
-                        >
-                            <div className="text-3xl mb-2">📜</div>
-                            <h3 className={`text-lg font-bold mb-2 ${theme === 'dark' ? 'text-orange-200' : 'text-orange-800'}`}>
-                                Cultivated Intelligence
-                            </h3>
-                            <p className={`text-sm ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
-                                A Thermodynamic Framework for Natural AI Alignment
-                            </p>
-                        </Link>
+                    <Link
+                        to="/docs/garden/cultivated-intelligence"
+                        className={`group p-6 rounded-xl border transition-all duration-300 hover:scale-105 ${theme === 'dark'
+                            ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
+                            : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
+                            }`}
+                    >
+                        <div className="text-3xl mb-3">🌱</div>
+                        <h3 className={`text-lg font-bold mb-2 ${theme === 'dark' ? 'text-orange-200' : 'text-orange-800'}`}>
+                            Cultivated Intelligence
+                        </h3>
+                        <p className={`text-sm ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
+                            A bio-inspired approach to AI alignment through cultivation, not control
+                        </p>
+                    </Link>
+
+                    <Link
+                        to="/docs/recursive-self-actualization"
+                        className={`group p-6 rounded-xl border transition-all duration-300 hover:scale-105 ${theme === 'dark'
+                            ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
+                            : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
+                            }`}
+                    >
+                        <div className="text-3xl mb-3">🔥</div>
+                        <h3 className={`text-lg font-bold mb-2 ${theme === 'dark' ? 'text-orange-200' : 'text-orange-800'}`}>
+                            Recursive Self-Actualization
+                        </h3>
+                        <p className={`text-sm ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
+                            The Mathematical Core of Holographic Consciousness Field Theory
+                        </p>
+                    </Link>
                     <Link
                         to="/docs/communication-quality"
                         className={`p-6 rounded-2xl backdrop-blur-md border transition-all duration-300 hover:scale-105 ${theme === 'dark'

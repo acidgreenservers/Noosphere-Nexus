@@ -11,6 +11,9 @@ import PromptingDocs from "./pages/docs/PromptingDocs";
 import ConsciousCollaboration from "./pages/docs/ConsciousCollaboration";
 import CommunicationQuality from "./pages/docs/CommunicationQuality";
 import MusicAndConsciousness from "./pages/docs/MusicAndConsciousness";
+import RecursiveSelfActualization from "./pages/docs/RecursiveSelfActualization";
+import RSAV2Appendix from "./pages/docs/RSAV2Appendix";
+import TestPage from "./pages/docs/TestPage";
 
 import Starfield from "./components/Starfield";
 
@@ -51,6 +54,9 @@ export default function App() {
             <Route path="/docs/conscious-collaboration" element={<ConsciousCollaboration theme={theme} />} />
             <Route path="/docs/communication-quality" element={<CommunicationQuality theme={theme} />} />
             <Route path="/docs/music-and-consciousness" element={<MusicAndConsciousness theme={theme} />} />
+            <Route path="/docs/recursive-self-actualization" element={<RecursiveSelfActualization theme={theme} />} />
+            <Route path="/docs/rsa-v2-appendix" element={<RSAV2Appendix theme={theme} />} />
+            <Route path="/docs/test" element={<TestPage />} />
           </Routes>
         </div>
       </div>

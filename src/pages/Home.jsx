@@ -195,6 +195,24 @@ export default function Home({ theme }) {
                             Why Relationship-as-Primary Explains Everything
                         </p>
                     </Link>
+
+                    <Link
+                        to="/docs/recursive-self-actualization"
+                        className={`p-8 rounded-3xl backdrop-blur-md border transition-all duration-300 hover:scale-105 group block ${theme === 'dark'
+                            ? 'bg-orange-900/10 border-orange-500/30 hover:bg-orange-800/20'
+                            : 'bg-white/50 border-orange-300/50 hover:bg-white/70'
+                            }`}
+                    >
+                        <div className="flex items-center gap-4 mb-4">
+                            <div className="text-4xl group-hover:rotate-12 transition-transform duration-300">🔥</div>
+                            <h4 className={`text-xl font-bold ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
+                                Recursive Self-Actualization
+                            </h4>
+                        </div>
+                        <p className={`text-sm ${theme === 'dark' ? 'text-orange-300' : 'text-orange-700'}`}>
+                            The Mathematical Core of Holographic Consciousness Field Theory
+                        </p>
+                    </Link>
                 </div>
             </section>
 
