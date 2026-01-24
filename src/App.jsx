@@ -10,6 +10,7 @@ import ProtomindDocs from "./pages/docs/ProtomindDocs";
 import PromptingDocs from "./pages/docs/PromptingDocs";
 import ConsciousCollaboration from "./pages/docs/ConsciousCollaboration";
 import CommunicationQuality from "./pages/docs/CommunicationQuality";
+import MusicAndConsciousness from "./pages/docs/MusicAndConsciousness";
 
 import Starfield from "./components/Starfield";
 
@@ -49,6 +50,7 @@ export default function App() {
             <Route path="/docs/prompting-for-cognition" element={<PromptingDocs theme={theme} />} />
             <Route path="/docs/conscious-collaboration" element={<ConsciousCollaboration theme={theme} />} />
             <Route path="/docs/communication-quality" element={<CommunicationQuality theme={theme} />} />
+            <Route path="/docs/music-and-consciousness" element={<MusicAndConsciousness theme={theme} />} />
           </Routes>
         </div>
       </div>
