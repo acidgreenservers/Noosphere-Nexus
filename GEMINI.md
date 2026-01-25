@@ -46,7 +46,7 @@ This is a **Single Page Application (SPA)** using React Router for client-side n
 
 **Documentation Pages**
 - Each framework has a dedicated documentation page in `/src/pages/docs/`
-- Additional standalone docs: `CultivatedIntelligence.jsx`, `PromptingDocs.jsx`, `ConsciousCollaboration.jsx`
+- Additional standalone docs: `CultivatedIntelligence.jsx`, `PromptingDocs.jsx`, `ConsciousCollaboration.jsx`, `CommunicationQuality.jsx`, `MusicAndConsciousness.jsx`, `RecursiveSelfActualization.jsx`, `RSAV2Appendix.jsx`
 - All doc pages receive `theme` prop for consistent styling
 
 ### Component Hierarchy
@@ -64,7 +64,11 @@ App.jsx (theme state, router)
         ├── CodexDocs.jsx
         ├── ProtomindDocs.jsx
         ├── PromptingDocs.jsx
-        └── ConsciousCollaboration.jsx
+        ├── ConsciousCollaboration.jsx
+        ├── CommunicationQuality.jsx
+        ├── MusicAndConsciousness.jsx
+        ├── RecursiveSelfActualization.jsx
+        └── RSAV2Appendix.jsx
 ```
 
 ## Important Implementation Details

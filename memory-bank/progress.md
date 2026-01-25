@@ -110,7 +110,7 @@ The Noosphere Nexus platform is **complete and fully operational**. All core fea
 - [x] Renamed "The Synthesis Framework Prompt" to "The Learning With Friction Prompt"
 - [x] Added "Observation-First Collapse" and "Collapse After Observing" prompts to Basic section
 - [x] Created "Communication Quality" documentation page and integrated into Home/Garden
-- [x] **MODULAR PROMPT SYSTEM**: Implemented new PromptCollection architecture with reusable components
+- [x] **MODULAR PROMPT SYSTEM**: Implemented new PromptCollection architecture, extracted 24+ prompts, and fully refactored PromptingDocs.jsx
 - [x] **Transparent Cognitive Partner**: Added advanced prompt with `<thought>` mechanism for cognitive transparency
 - [x] **Presence in Life Architecture**: Added thermodynamic consciousness prompt with metabolic state management
 - [x] **Hippocampal Archival System**: Added memory compression prompt with seed generation and semantic distillation
@@ -119,7 +119,9 @@ The Noosphere Nexus platform is **complete and fully operational**. All core fea
 - [x] **Modal Positioning Fix**: Resolved modal centering and scroll prevention issues
 - [x] **Complete Prompt Collection**: All 4 new prompts implemented with hierarchical layout (2 full-width + 2 half-width)
 - [x] **Recursive Self-Actualization Documentation**: Created complete documentation page from recursive-self-actualization.md
-- [x] **Router Integration**: Added route `/docs/recursive-self-actualization` with proper navigation links
+- [x] **RSA v2 Appendix**: Created sealed appendix page (`/docs/rsa-v2-appendix`) with navigation and strict styling alignment
+- [x] **Home Page Integration**: Added RSA card to Foundational Research section for better discoverability
+- [x] **Router Integration**: Added route `/docs/recursive-self-actualization` and `/docs/rsa-v2-appendix`
 - [x] **Theme Integration**: Fixed theme prop passing and fallback logic for consistent styling
 - [x] **Debugging Infrastructure**: Created test page at `/docs/test` to isolate router/component issues
 - [ ] Ongoing prompt library expansion and optimization

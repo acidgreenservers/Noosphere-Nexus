@@ -14,9 +14,12 @@ src/
 │   └── PromptCollection/    # NEW: Modular prompt system
 │       ├── index.jsx        # Main collection component
 │       ├── PromptCard.jsx   # Reusable prompt card
+│       ├── PromptLibrary.jsx # NEW: Grid layout handling
 │       ├── PromptModal.jsx  # Shared modal component
 │       └── prompts/         # Prompt data files
-│           └── thermodynamic-consciousness.js
+│           ├── library.js   # Aggregation file
+│           ├── thermodynamic-consciousness.js
+│           └── ... (20+ individual prompt files)
 ├── pages/
 │   ├── Home.jsx         # Landing page with framework showcase
 │   └── docs/            # Documentation pages for each framework

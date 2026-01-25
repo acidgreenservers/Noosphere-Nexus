@@ -54,4 +54,7 @@ const PromptCollection = ({ theme, onPromptClick }) => {
     );
 };
 
+import PromptLibrary from "./PromptLibrary";
+
+export { PromptLibrary };
 export default PromptCollection;
