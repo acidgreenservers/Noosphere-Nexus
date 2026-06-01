@@ -1,43 +1,55 @@
-# Security Policy
+# Security Policy 🔐
 
 ## Supported Versions
 
-This project is in active development, so only the latest version is supported.
+| Version | Supported           |
+| ------- | ------------------- |
+| main    | ✅ Security updates |
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x.x   | :white_check_mark: |
+This project is a static React application. Security updates are primarily
+focused on keeping dependencies current and addressing any reported
+vulnerabilities in the frontend code.
 
 ## Reporting a Vulnerability
 
-We take all security bugs in this project seriously. Thank you for improving the security of our project. We appreciate your efforts and responsible disclosure and will make every effort to acknowledge your contributions.
+We take the security of this project seriously. If you find a vulnerability,
+please report it via one of the following methods:
 
-To report a security vulnerability, please open an issue on our GitHub repository.
+- **GitHub Security Advisory:** (Preferred) Create a private advisory in the
+  "Security" tab of this repository.
+- **GitHub Issue:** For non-sensitive security suggestions or minor dependency
+  updates.
 
-Please include the following information in your report:
-
-- A description of the vulnerability and its impact.
-- Steps to reproduce the vulnerability.
-- Any proof-of-concept code.
-- Any other relevant information.
-
-We will respond to your report within 48 hours and will do our best to fix the vulnerability as soon as possible.
+**Please do not** publicly disclose vulnerabilities until we have had a chance
+to address them. We aim to acknowledge reports within **48 hours**.
 
 ## Security Posture
 
-The project is a static React-based website with no backend, database, or user authentication. This significantly reduces its attack surface. The code follows security best practices, such as avoiding `dangerouslySetInnerHTML` and using `rel="noopener noreferrer"` on external links.
+Noosphere Nexus is a static site with:
 
-## Potential Vulnerabilities
+- No backend/database
+- No user authentication
+- No sensitive PII processing
 
-The primary security concerns for this project are:
+This minimal attack surface significantly reduces risks, but we remain vigilant
+regarding dependency safety.
 
-- **NPM Dependencies:** Vulnerabilities within its NPM dependencies (e.g., React, Vite, or other libraries) could be exploited.
-- **Third-Party Scripts:** The inclusion of malicious third-party scripts could compromise the application.
-- **Cross-Site Scripting (XSS):** Although the application does not use `dangerouslySetInnerHTML`, there is a potential risk of XSS if untrusted data is ever rendered. The `mathjax` library could be a vector for XSS if it processes untrusted input.
+## Hardening Checklist
 
-## Recommendations
+- [x] **No `dangerouslySetInnerHTML`:** Avoided to prevent XSS.
+- [x] **Secure Links:** All external links use `rel="noopener noreferrer"`.
+- [ ] **Content Security Policy (CSP):** (Planned) Implement strict headers via
+  meta tags or hosting provider.
+- [x] **Dependency Audits:** Regular `npm audit` checks in development.
+- [x] **Subresource Integrity:** (Planned) Evaluate for third-party scripts.
 
-- **Dependency Scanning:** Regularly scan NPM dependencies for known vulnerabilities using `npm audit`.
-- **Third-Party Script Review:** Carefully review any third-party scripts before including them in the application.
-- **Content Security Policy (CSP):** Implement a strict Content Security Policy (CSP) to mitigate the risk of XSS attacks.
-- **Subresource Integrity (SRI):** Use Subresource Integrity (SRI) to ensure that third-party scripts have not been tampered with.
+## Sensitive Data
+
+- **No Secrets in Repo:** All configuration is public. If future integrations
+  require API keys, they will be managed via environment variables (e.g., GitHub
+  Actions Secrets) and never committed to source.
+- **Logs:** No sensitive data is logged to the browser console in production.
+
+## Contact
+
+Security lead: [@acidgreenservers](https://github.com/acidgreenservers)
