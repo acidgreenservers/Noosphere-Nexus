@@ -17,11 +17,11 @@ please report it via one of the following methods:
 
 - **GitHub Security Advisory:** (Preferred) Create a private advisory in the
   "Security" tab of this repository.
-- **GitHub Issue:** For non-sensitive security suggestions or minor dependency
-  updates.
+- **Email:** <security@acidgreenservers.com>
+- **Response target:** Acknowledge within **48 hours**.
 
 **Please do not** publicly disclose vulnerabilities until we have had a chance
-to address them. We aim to acknowledge reports within **48 hours**.
+to address them.
 
 ## Security Posture
 
@@ -36,19 +36,21 @@ regarding dependency safety.
 
 ## Hardening Checklist
 
-- [x] **No `dangerouslySetInnerHTML`:** Avoided to prevent XSS.
-- [x] **Secure Links:** All external links use `rel="noopener noreferrer"`.
-- [ ] **Content Security Policy (CSP):** (Planned) Implement strict headers via
+- [x] **No `dangerouslySetInnerHTML`**: Avoided to prevent XSS.
+- [x] **Secure Links**: All external links use `rel="noopener noreferrer"`.
+- [ ] **Content Security Policy (CSP)**: (Planned) Implement strict headers via
   meta tags or hosting provider.
-- [x] **Dependency Audits:** Regular `npm audit` checks in development.
-- [x] **Subresource Integrity:** (Planned) Evaluate for third-party scripts.
+- [x] **Dependency Audits**: Regular `npm audit` checks in development.
+- [x] **Subresource Integrity**: (Planned) Evaluate for third-party scripts.
+- [x] **Input Validation**: Enforced on any client-side inputs.
 
-## Sensitive Data
+## Handling Sensitive Data
 
-- **No Secrets in Repo:** All configuration is public. If future integrations
+- **No Secrets in Repo**: All configuration is public. If future integrations
   require API keys, they will be managed via environment variables (e.g., GitHub
   Actions Secrets) and never committed to source.
-- **Logs:** No sensitive data is logged to the browser console in production.
+- **Logs**: No sensitive data is logged to the browser console in production.
+- **Error Messages**: Generic in production to avoid information leakage.
 
 ## Contact
 

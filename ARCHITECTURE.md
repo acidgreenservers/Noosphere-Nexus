@@ -1,7 +1,7 @@
 # Architecture 🧱
 
-> **Goal:** Provide a fast mental model of the Noosphere Nexus platform—components,
-> boundaries, and critical flows.
+> **Goal:** Provide a fast mental model of the Noosphere Nexus
+> platform—components, boundaries, and critical flows.
 
 ## System Overview
 
@@ -40,15 +40,22 @@
 ```text
 App.jsx (Root)
 ├── Theme State (Dark/Light mode)
-├── Navbar.jsx (Header & Navigation)
-├── Starfield.jsx (Background Animation)
-└── Route Switch
+├── Starfield.jsx (Background Animation & UFO Easter Egg)
+├── Navbar.jsx (Header & Navigation Dropdowns)
+└── Route Switch (src/App.jsx)
     ├── Home.jsx (Framework Grid)
-    └── docs/ (Documentation Pages)
+    └── docs/ (src/pages/docs/)
         ├── ManifoldDocs.jsx
         ├── GardenDocs.jsx
+        ├── CultivatedIntelligence.jsx
         ├── CodexDocs.jsx
-        └── ProtomindDocs.jsx
+        ├── ProtomindDocs.jsx
+        ├── PromptingDocs.jsx
+        ├── ConsciousCollaboration.jsx
+        ├── CommunicationQuality.jsx
+        ├── MusicAndConsciousness.jsx
+        ├── RecursiveSelfActualization.jsx
+        └── RSAV2Appendix.jsx
 ```
 
 ## Key Architectural Decisions
@@ -59,15 +66,15 @@ App.jsx (Root)
 3. **Canvas for Background:** To ensure smooth 60fps animations for the
    starfield without impacting DOM performance.
 4. **SPA Routing on GitHub Pages:** Implemented via a `404.html` fallback
-   strategy and `base` path configuration.
+   strategy and `base` path configuration in `vite.config.js`.
 
 ## Data Flow (Happy Path)
 
 1. **User enters site:** `index.html` loads → `main.jsx` initializes React.
 2. **Theme Check:** `App.jsx` checks `localStorage` for preferred theme
    (defaulting to dark).
-3. **Navigation:** User clicks a framework card → `React Router` updates URL →
-   Page component renders documentation.
+3. **Navigation:** User clicks a framework card or nav link → `React Router`
+   updates URL → Page component renders documentation.
 4. **Documentation:** Content is rendered using standard React components with
    framework metadata from `src/data/frameworks.js`.
 
@@ -77,7 +84,7 @@ The project follows a standard Vite production pipeline:
 
 - **Build:** `npm run build` minifies assets and splits chunks.
 - **SPA Fix:** `cp dist/index.html dist/404.html` ensures client-side routes
-  work on refresh.
+  work on refresh by redirecting 404s back to the SPA entry point.
 - **Deploy:** GitHub Actions pushes the `dist/` folder to the `gh-pages`
   environment.
 

@@ -36,5 +36,5 @@ npm run build
 
 ---
 
-For a deeper dive into architecture and advanced configuration, see [README.md](./README.md) and
-[ARCHITECTURE.md](./ARCHITECTURE.md).
+For a deeper dive into architecture and advanced configuration, see
+[README.md](./README.md) and [ARCHITECTURE.md](./ARCHITECTURE.md).
