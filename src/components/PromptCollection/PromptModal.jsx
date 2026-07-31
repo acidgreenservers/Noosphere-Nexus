@@ -1,6 +1,17 @@
 import React from "react";
+import { marked } from "marked";
 
 const PromptModal = ({ prompt, onClose, theme, copied, onCopy }) => {
+    // Configure marked options if desired, then parse prompt content
+    const parsedHtml = React.useMemo(() => {
+        try {
+            return { __html: marked.parse(prompt.content || "") };
+        } catch (e) {
+            console.error("Failed to parse markdown with marked:", e);
+            return { __html: `<pre class="whitespace-pre-wrap">${prompt.content}</pre>` };
+        }
+    }, [prompt.content]);
+
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <div
@@ -37,9 +48,12 @@ const PromptModal = ({ prompt, onClose, theme, copied, onCopy }) => {
 
                 {/* Modal Content */}
                 <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
-                    <pre className={`text-sm font-mono whitespace-pre-wrap ${theme === 'dark' ? 'text-orange-100' : 'text-orange-900'}`}>
-                        {prompt.content}
-                    </pre>
+                    <div
+                        className={`markdown-content prose max-w-none text-sm leading-relaxed ${theme === 'dark'
+                            ? 'text-orange-100 prose-invert prose-orange'
+                            : 'text-orange-950 prose-orange'}`}
+                        dangerouslySetInnerHTML={parsedHtml}
+                    />
                 </div>
 
                 {/* Modal Footer (Copy Action) */}
