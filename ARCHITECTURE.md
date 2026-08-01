@@ -53,34 +53,34 @@ App.jsx (Root)
 
 ## Key Architectural Decisions
 
-1. **Vite Build System:** Chosen for its speed and modern asset pipeline.
-2. **Tailwind CSS:** Used for utility-first styling, enabling rapid UI
-   development with a consistent design language.
-3. **Canvas for Background:** To ensure smooth 60fps animations for the
-   starfield without impacting DOM performance.
-4. **SPA Routing on GitHub Pages:** Implemented via a `404.html` fallback
-   strategy and `base` path configuration.
+1. **Vite Build System:** Chosen for its fast HMR and compilation.
+2. **Tailwind CSS:** Enables rapid design implementation with a utility-first
+   approach and a consistent dark/light mode palette.
+3. **Canvas Animation:** Standard HTML5 Canvas handles starfield and asteroid
+   visual effects at 60fps without burdening the DOM.
+4. **Subdirectory SPA Routing:** Client routing under a subpath is handled via
+   the custom fallback script and the `404.html` copier built into `npm run build`.
 
 ## Data Flow (Happy Path)
 
-1. **User enters site:** `index.html` loads → `main.jsx` initializes React.
-2. **Theme Check:** `App.jsx` checks `localStorage` for preferred theme
-   (defaulting to dark).
-3. **Navigation:** User clicks a framework card → `React Router` updates URL →
-   Page component renders documentation.
-4. **Documentation:** Content is rendered using standard React components with
-   framework metadata from `src/data/frameworks.js`.
+1. **User Enters Site:** `index.html` loads, initializing `main.jsx` and React.
+2. **Theme Initialization:** `App.jsx` evaluates browser preference and
+   local theme cache (`localStorage`).
+3. **Navigation Action:** Clicking cards/links transitions routes via React Router
+   without page reloads.
+4. **Data Injection:** Pages reference centralized meta arrays inside
+   `src/data/frameworks.js` to render framework guides.
 
 ## Build & Deployment
 
-The project follows a standard Vite production pipeline:
+Production compilation proceeds as follows:
 
-- **Build:** `npm run build` minifies assets and splits chunks.
-- **SPA Fix:** `cp dist/index.html dist/404.html` ensures client-side routes
-  work on refresh.
-- **Deploy:** GitHub Actions pushes the `dist/` folder to the `gh-pages`
-  environment.
+- **Command:** `npm run build` runs static optimization.
+- **SPA Fallback:** `cp dist/index.html dist/404.html` copies index to 404
+  for direct subpage request routing on GitHub Pages.
+- **Workflow:** Deploys artifact via `.github/workflows/deploy.yml`.
 
 ---
 
-For setup instructions, see [README.md](./README.md).
+For development setup instructions, see [README.md](./README.md) or
+[PROJECT-BLUEPRINT.md](./PROJECT-BLUEPRINT.md).

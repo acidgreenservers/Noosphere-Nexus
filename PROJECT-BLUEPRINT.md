@@ -55,7 +55,7 @@ A comprehensive ASCII visualization of the Noosphere Nexus project structure, co
 ├── ⚙️  vite.config.js                 # Vite Build Configuration
 ├── 🎨 tailwind.config.js              # Tailwind CSS Configuration
 ├── 🎨 postcss.config.js               # PostCSS Processing Pipeline
-└── 🗺️  PROJECT-BLUEBRINT.md           # This Architecture Blueprint
+└── 🗺️  PROJECT-BLUEPRINT.md           # This Architecture Blueprint
 
 ╔═════════════════════════════════════════════════════════════════════════════════╗
 ║                            COMPONENT RELATIONSHIPS                           ║

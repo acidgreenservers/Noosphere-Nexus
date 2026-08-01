@@ -1,28 +1,39 @@
-# 🛠️ Noosphere Nexus Setup Guide
+# Noosphere Nexus Setup Guide 🛠️
 
-*"Technical setup, deployment, and maintenance instructions for the Noosphere Nexus consciousness research platform."*
+Technical setup, deployment, and maintenance instructions for the
+Noosphere Nexus consciousness research platform.
 
 ---
 
 ## 📦 Initial Setup
 
 ### Prerequisites
-- Node.js 18+ and npm installed
-- Git for version control
-- Text editor (VS Code / VSCodium recommended)
+
+- **Node.js:** 18+ (tested on Node 18 & 20)
+- **npm:** 9+ (included with Node.js)
+- **Git:** For version control
+- **Text Editor:** VS Code / Cursor or similar editor recommended
 
 ### Installation
+
 ```bash
-git clone https://github.com/acidgreenservers/noosphere-nexus.git
+# Clone the repository
+git clone https://github.com/acidgreenservers/Noosphere-Nexus.git
 cd Noosphere-Nexus
+
+# Install verified dependencies
 npm install
 ```
 
 ### Development Server
+
 ```bash
+# Spin up hot-reload server
 npm run dev
 ```
-Visit `http://localhost:5173/noosphere-nexus/` for development preview.
+
+Visit the local development address to preview changes:
+[http://localhost:5173/Noosphere-Nexus/](http://localhost:5173/Noosphere-Nexus/)
 
 ---
 
@@ -33,24 +44,33 @@ Visit `http://localhost:5173/noosphere-nexus/` for development preview.
 This project uses **Vite** and is deployed to **GitHub Pages**.
 
 #### 1. Base URL Configuration
-To ensure assets load correctly in the subdirectory, `vite.config.js` must match the repository name **exactly** (case-sensitive):
+
+To ensure assets load correctly in the subdirectory, `vite.config.js` must
+match the repository name **exactly** (case-sensitive):
 
 ```javascript
 // vite.config.js
 export default defineConfig({
   plugins: [react()],
-  base: '/Noosphere-Nexus/' // Must match https://github.com/acidgreenservers/noosphere-nexus
+  base: '/Noosphere-Nexus/' // Must match the case-sensitive repository name
 })
 ```
 
-*Important: Do not add `vite.config.js` to `.gitignore`. It is required for the build process.*
+*Important: Do not add `vite.config.js` to `.gitignore`. It is required for the
+production build pipeline.*
 
-#### 2. SPA Routing (The 404 Fix)
-Single Page Applications (SPAs) often face 404 errors on refresh because GitHub Pages doesn't know how to handle client-side routes (like `/docs/manifold`).
+#### 2. SPA Routing (The 404 Fallback)
 
-We solve this by automatically copying `index.html` to `404.html` during the build. This forces GitHub Pages to serve the app entry point for any unknown specific route, allowing React Router to handle the URL correctly.
+Single Page Applications (SPAs) often encounter 404 errors on refresh because
+GitHub Pages does not natively resolve client-side routes (e.g. `/docs/manifold`)
+without physical files on disk.
 
-This is handled in `package.json`:
+We solve this by automatically copying `index.html` to `404.html` during build time.
+This forces the hosting provider to fallback to the React entry point, allowing
+React Router to correctly parse and resolve the URL path.
+
+This is configured in `package.json`:
+
 ```json
 "scripts": {
   "build": "vite build && cp dist/index.html dist/404.html"
@@ -58,55 +78,62 @@ This is handled in `package.json`:
 ```
 
 #### 3. Deployment Steps
-1. Push changes to `main`.
-2. GitHub Actions (if configured) or manual deployment will build the project.
-3. Verify the site at `https://acidgreenservers.github.io/noosphere-nexus/`.
+
+1. Push changes to the `main` branch.
+2. GitHub Actions (`deploy.yml` workflow) automatically runs and builds the site.
+3. Verify the live application at:
+   <a href="https://acidgreenservers.github.io/Noosphere-Nexus/" target="_blank" rel="noopener noreferrer">https://acidgreenservers.github.io/Noosphere-Nexus/</a>
 
 ---
 
-## � Content Management
+## 📂 Content Management
 
 ### Adding New Documentation Pages
-1. Create a new component in `src/pages/docs/`.
-2. Use the standard layout (Navbar + Starfield).
-3. Register the new route in `src/App.jsx`.
-4. Add navigation links in `src/components/Navbar.jsx` or relevant pages.
+
+1. Create a new page component in the `src/pages/docs/` directory.
+2. Mirror the standard layout (embed the Navbar and Starfield).
+3. Register the new route within `src/App.jsx`.
+4. Add corresponding links to `src/components/Navbar.jsx` and any other index menus.
 
 ### "Prompting for Cognition"
-The prompting documentation is located at:
-- Source: `src/pages/docs/PromptingDocs.jsx`
-- Route: `/docs/prompting-for-cognition`
+
+The prompting tools and collection directory structure:
+
+- **Component File:** `src/pages/docs/PromptingDocs.jsx`
+- **Modular Directory:** `src/components/PromptCollection/`
+- **Route Path:** `/docs/prompting-for-cognition`
 
 ---
 
-## � Troubleshooting
+## 🆘 Troubleshooting
 
 ### Blank White Screen on Deployment
-**Cause:** Mismatched `base` URL or missing config.
-**Fix:**
-1. Check `vite.config.js`: Ensure `base` is `/noosphere-nexus/` (lowercase).
-2. Check `.gitignore`: Ensure `vite.config.js` is **NOT** ignored.
-3. Check Browser Console: Look for 404s on `.js` or `.css` files.
+
+- **Cause:** Mismatched `base` URL inside `vite.config.js` or missing configs.
+- **Fix:** Ensure `base` is `/Noosphere-Nexus/` exactly. Check your browser
+  console (F12) to see if bundle files are failing with a 404 error.
 
 ### 404 Error on Refresh
-**Cause:** Server looking for a physical file that doesn't exist.
-**Fix:** Ensure the build script includes `&& cp dist/index.html dist/404.html`.
+
+- **Cause:** Server looking for physical subdirectory paths instead of using fallback.
+- **Fix:** Ensure the build script contains `&& cp dist/index.html dist/404.html`.
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Architecture Summary
 
-```
+```text
 src/
-├── components/     # Reusable UI (Navbar, Starfield)
+├── components/     # Reusable UI (Navbar, Starfield, PromptCollection)
 ├── pages/         # Route-based page components
-│   ├── docs/      # Documentation pages
-│   └── Home.jsx   # Landing page
-├── App.jsx        # Main routing & Theme provider
-└── index.css      # Tailwind & global styles
+│   ├── docs/      # In-depth consciousness and research documentation
+│   └── Home.jsx   # Interactive landing page
+├── App.jsx        # Root routing and Theme state provider
+└── index.css      # Tailwind core directives and custom global layers
 ```
 
 ### Styling
-- **Tailwind CSS**: Utility-first styling.
-- **Dark/Light Mode**: Handled via `localStorage` and `theme` prop.
-- **Starfield**: Custom canvas animation in `src/components/Starfield.jsx`.
+
+- **Tailwind CSS:** Utility-first utility classes and media queries.
+- **Dark/Light Mode:** Resolved via custom contexts and persistent local storage.
+- **Canvas Animations:** Smooth interactive rendering inside `Starfield.jsx`.

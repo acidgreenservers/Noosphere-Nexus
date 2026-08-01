@@ -1,11 +1,12 @@
 # Quickstart ⚡
 
-This path gets you from **clone → running app** in less than 90 seconds.
+This guide outlines the fastest route from **clone** to a **running app**
+in under 90 seconds.
 
 ## Prerequisites
 
 - **Node.js**: 18+
-- **npm**: (included with Node)
+- **npm**: (included with Node.js)
 
 ## 1) Clone & Enter
 
@@ -17,10 +18,10 @@ cd Noosphere-Nexus
 ## 2) Install & Run
 
 ```bash
-# Install dependencies
+# Install package dependencies
 npm install
 
-# Start development server
+# Start local development server
 npm run dev
 ```
 
@@ -31,10 +32,11 @@ npm run dev
 ## 4) Verify Build
 
 ```bash
+# Build production bundles
 npm run build
 ```
 
 ---
 
-For a deeper dive into architecture and advanced configuration, see [README.md](./README.md) and
-[ARCHITECTURE.md](./ARCHITECTURE.md).
+For architectural deeper dives, blueprints, and configuration options, see
+[README.md](./README.md) and [ARCHITECTURE.md](./ARCHITECTURE.md).

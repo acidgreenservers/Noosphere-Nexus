@@ -1,89 +1,95 @@
-# Troubleshooting Blank Page on GitHub Pages
+# Troubleshooting Guide 🆘
 
-## Quick Fix Checklist
+This document provides solutions to common deployment, build, and runtime issues.
+
+---
+
+## 🚀 Blank Page on GitHub Pages
 
 ### 1. Check GitHub Pages Settings
-- Go to your repo → Settings → Pages
-- Source should be set to "GitHub Actions" (NOT gh-pages branch)
-- If using gh-pages branch, make sure it's selected
+
+- Go to your repository settings page: **Settings → Pages**.
+- Ensure the **Source** is set to "GitHub Actions" (rather than the old
+  `gh-pages` branch deployment model, unless you are deploying manually).
 
 ### 2. Rebuild with Correct Base Path
 
-**Option A: Use relative paths (recommended)**
-Already set in vite.config.js as `base: './'`
+The build base URL is configured in `vite.config.js`. Ensure that the `base` key
+corresponds to your exact, case-sensitive repository name:
 
-**Option B: Use your repo name**
-In `vite.config.js`, change:
-```js
-base: '/your-repo-name/'
+```javascript
+base: '/Noosphere-Nexus/'
 ```
 
-Then rebuild and redeploy:
+Rebuild the static files and push:
+
 ```bash
 npm run build
 git add .
-git commit -m "fix: update base path"
+git commit -m "fix: enforce correct subdirectory base path"
 git push
 ```
 
-### 3. Check Browser Console
-Open your deployed site and press F12 to open DevTools. Look for errors:
+### 3. Check Browser Developer Console
 
-**Common errors:**
-- 404 on `/assets/*.js` → Wrong base path
-- CORS errors → Check GitHub Pages is enabled
-- White screen + no errors → React not mounting
+Open your deployed site, press **F12**, and select the **Console** tab. Check for
+any red error messages:
 
-### 4. Manual Deploy Method
+- **404 on `/assets/*.js` or `/assets/*.css`**: This indicates that the asset
+  base path is incorrect. Check `vite.config.js` again.
+- **CORS Errors**: Confirm that GitHub Pages features are activated and the
+  workflow completed successfully.
+- **Blank page without any errors**: This usually means the React mount target
+  is missing, or a routing hook crashed silently. Run a local production preview
+  to inspect.
 
-If GitHub Actions isn't working:
+### 4. Local Build Preview
 
-```bash
-# Install gh-pages
-npm install --save-dev gh-pages
-
-# Add to package.json scripts:
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-
-# Deploy
-npm run deploy
-```
-
-Then in GitHub Settings → Pages, set source to "gh-pages" branch.
-
-### 5. Test Locally First
+You can verify that your production bundles compile and run flawlessly locally
+before sending them to remote hosting:
 
 ```bash
+# Compile code
 npm run build
+
+# Boot local production web server
 npm run preview
 ```
 
-If it works locally at http://localhost:4173, the build is fine.
+If the build launches and navigates correctly under
+[http://localhost:4173/Noosphere-Nexus/](http://localhost:4173/Noosphere-Nexus/),
+then the bundler configuration is correct and any issue is host-specific.
 
-### 6. Alternative: Use a Different Platform
+### 5. Alternative Hosting Deployments
 
-If GitHub Pages is still problematic, try:
+If GitHub Pages continues to pose pathing issues, you can deploy to alternative
+static platforms easily:
 
-**Cloudflare Pages (Easiest):**
-1. Go to https://pages.cloudflare.com
-2. Connect your GitHub repo
-3. Build command: `npm run build`
-4. Output: `dist`
-5. Deploy!
+- **Cloudflare Pages:**
+  1. Navigate to
+     <a href="https://pages.cloudflare.com"
+        target="_blank"
+        rel="noopener noreferrer">Cloudflare Pages</a>.
+  2. Connect your GitHub repository.
+  3. Set build command to: `npm run build`
+  4. Set output directory to: `dist`
+  5. Save and deploy!
 
-**Vercel:**
-1. Go to https://vercel.com
-2. Import GitHub repo
-3. Auto-detects everything
-4. Deploy!
+- **Vercel:**
+  1. Navigate to
+     <a href="https://vercel.com"
+        target="_blank"
+        rel="noopener noreferrer">Vercel</a>.
+  2. Import the project repository.
+  3. The build parameters are auto-detected. Click deploy!
 
-### 7. Check Your Repo Structure
+---
 
-Make sure these files are committed:
-```
+## 🏗️ Repository Health Checklist
+
+Make sure the following critical files are fully tracked and committed:
+
+```text
 ✓ index.html
 ✓ package.json
 ✓ vite.config.js
@@ -92,27 +98,30 @@ Make sure these files are committed:
 ✓ src/index.css
 ```
 
-### 8. Nuclear Option: Start Fresh
+---
+
+## 🧹 Nuclear Reset Method
+
+If your workspace enters an inconsistent state, you can wipe temporary build
+directories and perform a clean installation:
 
 ```bash
-# Delete dist and node_modules
+# Delete build output and package directories
 rm -rf dist node_modules
 
-# Fresh install
+# Perform clean dependency installation
 npm install
 
-# Build
+# Rebuild assets
 npm run build
-
-# Test
-npm run preview
 ```
 
-## Still Not Working?
+---
 
-Share your:
-1. GitHub repo URL
-2. Browser console errors (F12 → Console tab)
-3. Network errors (F12 → Network tab)
+## Still Having Issues?
 
-And I can help diagnose the specific issue!
+Please open an issue in the project tracker with:
+
+1. Deployed site URL
+2. Browser Console (F12) error dump
+3. OS, Node.js, and browser version details
