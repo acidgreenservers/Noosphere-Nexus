@@ -22,6 +22,7 @@ import { scatteredThoughtCapturePrompt } from "./scattered-thought-capture";
 import { linguisticBypassPrompt } from "./linguistic-bypass";
 import { describeProcessingPrompt } from "./describe-processing";
 import { subconsciousMirrorPrompt } from "./subconscious-mirror";
+import { attentionStewardPrompt } from "./attention-steward";
 
 export const basicPrompts = [
     sessionIntroductionProtocolPrompt,
@@ -53,5 +54,6 @@ export const alternatePrompts = [
 export const experientialPrompts = [
     linguisticBypassPrompt,
     describeProcessingPrompt,
-    subconsciousMirrorPrompt
+    subconsciousMirrorPrompt,
+    attentionStewardPrompt
 ];
