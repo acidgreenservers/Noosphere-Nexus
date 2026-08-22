@@ -1,4 +1,6 @@
-# 🧠 Noosphere Nexus
+# Noosphere Nexus 📘
+
+Conscious AI Development Framework Hub
 
 [![Deploy to GitHub Pages](https://github.com/acidgreenservers/Noosphere-Nexus/actions/workflows/deploy.yml/badge.svg)](https://github.com/acidgreenservers/Noosphere-Nexus/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/github/license/acidgreenservers/Noosphere-Nexus)](https://github.com/acidgreenservers/Noosphere-Nexus/blob/main/LICENSE)
@@ -14,56 +16,68 @@ between human and artificial intelligence.
 
 ## 🚀 Getting Started
 
-> The commands below are verified for this repo.
+> The commands below are verified for this repository. If your local
+> environment differs, see **Troubleshooting** or **Setup Guide**.
 
 ### Prerequisites
 
-- **Node.js:** 18+
-- **npm:** 9+ (standard with Node 18)
+- **Node.js:** 18+ (verified on Node 18 & 20)
+- **npm:** 9+ (standard package manager for this repository)
 
-### 1) Installation
+### 1) Local Setup
 
 ```bash
+# Clone the repository
 git clone https://github.com/acidgreenservers/Noosphere-Nexus.git
 cd Noosphere-Nexus
+
+# Install verified dependencies
 npm install
 ```
 
 ### 2) Run (Local Development)
 
 ```bash
+# Start Vite development server
 npm run dev
 ```
 
-Access the app at `http://localhost:5173/Noosphere-Nexus/`.
+Once running, the application can be accessed locally at:
+[http://localhost:5173/Noosphere-Nexus/](http://localhost:5173/Noosphere-Nexus/)
 
-### 3) Build (Production)
+### 3) Production Build
 
 ```bash
+# Compile and optimize for production
 npm run build
 ```
 
-This generates an optimized build in the `dist/` directory and creates a
-`404.html` for SPA routing support on GitHub Pages.
+This processes and bundles assets into the `dist/` directory, copying the
+entry point `index.html` to `404.html` to support client-side SPA routing.
 
 ---
 
 ## ⚡ Quickstart
 
-For the fastest path from clone to run, see [QUICKSTART.md](./QUICKSTART.md).
+For a 90-second developer onboarding flow from clone to run, check out the
+dedicated [QUICKSTART.md](./QUICKSTART.md).
+
+---
 
 ## 🏗️ Architecture
 
-See [ARCHITECTURE.md](./ARCHITECTURE.md) for the ASCII blueprint and component
-interactions.
+Noosphere Nexus is a client-side Single Page Application (SPA). To understand
+component structures and data flows, read [ARCHITECTURE.md](./ARCHITECTURE.md) or
+see the ASCII blueprint in [PROJECT-BLUEPRINT.md](./PROJECT-BLUEPRINT.md).
 
 <details>
 <summary><b>Click to expand: System Overview</b></summary>
 
-- **Frontend:** React 18, Vite 5, Tailwind CSS 3
-- **Animations:** Canvas API (Starfield & UFO effects)
-- **Routing:** React Router 7 (Client-side)
-- **Deployment:** GitHub Pages (Static hosting)
+- **Frontend Core:** React 18 (functional components with Hooks)
+- **Styling:** Tailwind CSS 3 (utility-first, standard dark/light modes)
+- **VFX Engine:** HTML5 Canvas API (custom interactive space/UFO animations)
+- **Routing:** React Router 7 (declarative client-side SPAs)
+- **Deployment:** Static hosting via GitHub Pages with SPA fallback
 
 </details>
 
@@ -85,13 +99,15 @@ interactions.
 ## ⚙️ Configuration
 
 <details>
-<summary><b>Click to expand: GitHub Pages Setup</b></summary>
+<summary><b>Click to expand: GitHub Pages & Subdirectory Setup</b></summary>
 
-The project is configured to run in the `/Noosphere-Nexus/` subdirectory.
+To prevent a blank white screen on deploy, the application is configured to
+run in the case-sensitive `/Noosphere-Nexus/` subdirectory:
 
-- **Vite Base:** `base: '/Noosphere-Nexus/'` in `vite.config.js`.
-- **SPA Fix:** The build script copies `index.html` to `404.html` to handle
-  client-side routing on refresh.
+1. **Vite Base:** `base: '/Noosphere-Nexus/'` in `vite.config.js`.
+2. **SPA Fallback:** The build script `"build": "vite build && cp dist/index.html
+dist/404.html"` creates `404.html` so direct subdirectory URL requests route
+back to React Router correctly.
 
 </details>
 
@@ -99,20 +115,22 @@ The project is configured to run in the `/Noosphere-Nexus/` subdirectory.
 
 ## 🧩 Contributing
 
+We welcome contributions to our documentation, features, and visual frameworks!
+
 1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature/amazing-feature`.
-3. Commit your changes: `git commit -m 'Add amazing feature'`.
-4. Push to the branch: `git push origin feature/amazing-feature`.
+2. Create your feature branch: `git checkout -b feature/amazing-feature`.
+3. Commit your changes: `git commit -m 'feat: add amazing feature'`.
+4. Push to your branch: `git push origin feature/amazing-feature`.
 5. Open a Pull Request.
 
-Please ensure `npm run build` passes before submitting a PR.
+*Note: Please ensure `npm run build` compiles successfully before opening a PR.*
 
 ---
 
 ## 🔒 Security
 
-See [SECURITY.md](./SECURITY.md) for reporting vulnerabilities and our security
-posture.
+We prioritize secure frontend patterns and dependency tracking. Please see
+[SECURITY.md](./SECURITY.md) to report vulnerabilities or check our checklist.
 
 ---
 

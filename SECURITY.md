@@ -3,52 +3,49 @@
 ## Supported Versions
 
 | Version | Supported           |
-| ------- | ------------------- |
-| main    | ✅ Security updates |
+|:--------|:--------------------|
+| main    | ✅ Security Updates |
 
 This project is a static React application. Security updates are primarily
-focused on keeping dependencies current and addressing any reported
-vulnerabilities in the frontend code.
+focused on keeping packages current and addressing any reported
+vulnerabilities in frontend assets.
 
 ## Reporting a Vulnerability
 
-We take the security of this project seriously. If you find a vulnerability,
-please report it via one of the following methods:
+We take security seriously. If you discover a vulnerability, please report it
+privately to prevent public disclosure prior to a fix:
 
 - **GitHub Security Advisory:** (Preferred) Create a private advisory in the
   "Security" tab of this repository.
-- **GitHub Issue:** For non-sensitive security suggestions or minor dependency
-  updates.
+- **GitHub Issue:** Use this only for non-sensitive security suggestions or
+  minor package updates.
 
-**Please do not** publicly disclose vulnerabilities until we have had a chance
-to address them. We aim to acknowledge reports within **48 hours**.
+We aim to acknowledge and respond to all reports within **48 hours**.
 
 ## Security Posture
 
-Noosphere Nexus is a static site with:
+Noosphere Nexus is compiled to a static client site with:
 
-- No backend/database
-- No user authentication
-- No sensitive PII processing
+- No backend servers/databases
+- No user accounts or authentication flows
+- No sensitive personally identifiable information (PII) processing
 
-This minimal attack surface significantly reduces risks, but we remain vigilant
-regarding dependency safety.
+This minimal attack surface significantly reduces runtime risk, but we remain
+vigilant with regards to package safety.
 
 ## Hardening Checklist
 
-- [x] **No `dangerouslySetInnerHTML`:** Avoided to prevent XSS.
+- [x] **No unsafe innerHTML:** Avoid `dangerouslySetInnerHTML` to prevent XSS.
 - [x] **Secure Links:** All external links use `rel="noopener noreferrer"`.
-- [ ] **Content Security Policy (CSP):** (Planned) Implement strict headers via
-  meta tags or hosting provider.
-- [x] **Dependency Audits:** Regular `npm audit` checks in development.
+- [ ] **Content Security Policy (CSP):** (Planned) Strict policy headers.
+- [x] **Dependency Audits:** Run `npm audit` checks regularly in dev.
 - [x] **Subresource Integrity:** (Planned) Evaluate for third-party scripts.
 
 ## Sensitive Data
 
-- **No Secrets in Repo:** All configuration is public. If future integrations
-  require API keys, they will be managed via environment variables (e.g., GitHub
-  Actions Secrets) and never committed to source.
-- **Logs:** No sensitive data is logged to the browser console in production.
+- **No Secrets in Repo:** All configuration is completely public.
+- **Console Logs:** No private state or sensitive logs are written to the
+  browser console in production.
 
 ## Contact
 
