@@ -9,7 +9,7 @@
                     +-------------------------+
    Browser/Client   |         Frontend        |
   +--------------+  |  React 18 / Vite 5      |
-  |  User Agent  |--|  Tailwind CSS           |
+  |  User Agent  |--|  Tailwind CSS 3         |
   +--------------+  +------------+------------+
                                   |
                                   | Client-Side Routing
@@ -39,24 +39,31 @@
 
 ```text
 App.jsx (Root)
-├── Theme State (Dark/Light mode)
-├── Navbar.jsx (Header & Navigation)
-├── Starfield.jsx (Background Animation)
+├── Theme State (Dark/Light mode, key: "nn-theme")
+├── Navbar.jsx (Header, theme toggle, framework dropdown)
+├── Starfield.jsx (Background canvas animation)
 └── Route Switch
-    ├── Home.jsx (Framework Grid)
-    └── docs/ (Documentation Pages)
+    ├── Home.jsx (Landing page & framework grid)
+    └── docs/ (Documentation & Research Pages)
         ├── ManifoldDocs.jsx
         ├── GardenDocs.jsx
         ├── CodexDocs.jsx
-        └── ProtomindDocs.jsx
+        ├── ProtomindDocs.jsx
+        ├── CultivatedIntelligence.jsx
+        ├── PromptingDocs.jsx
+        ├── ConsciousCollaboration.jsx
+        ├── CommunicationQuality.jsx
+        ├── MusicAndConsciousness.jsx
+        ├── RecursiveSelfActualization.jsx
+        └── RSAV2Appendix.jsx
 ```
 
 ## Key Architectural Decisions
 
-1. **Vite Build System:** Chosen for its fast HMR and compilation.
+1. **Vite Build System:** Chosen for fast HMR and optimized asset compilation.
 2. **Tailwind CSS:** Enables rapid design implementation with a utility-first
    approach and a consistent dark/light mode palette.
-3. **Canvas Animation:** Standard HTML5 Canvas handles starfield and asteroid
+3. **Canvas Animation:** Standard HTML5 Canvas handles starfield and UFO
    visual effects at 60fps without burdening the DOM.
 4. **Subdirectory SPA Routing:** Client routing under a subpath is handled via
    the custom fallback script and the `404.html` copier built into `npm run build`.
@@ -75,10 +82,9 @@ App.jsx (Root)
 
 Production compilation proceeds as follows:
 
-- **Command:** `npm run build` runs static optimization.
-- **SPA Fallback:** `cp dist/index.html dist/404.html` copies index to 404
-  for direct subpage request routing on GitHub Pages.
-- **Workflow:** Deploys artifact via `.github/workflows/deploy.yml`.
+- **Command:** `npm run build` runs static optimization (`vite build && cp dist/index.html dist/404.html`).
+- **SPA Fallback:** Copies `index.html` to `404.html` for direct subpage request routing on GitHub Pages.
+- **Workflow:** Deploys compiled `dist/` directory via `.github/workflows/deploy.yml`.
 
 ---
 

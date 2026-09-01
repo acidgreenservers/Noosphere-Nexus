@@ -16,12 +16,12 @@ between human and artificial intelligence.
 
 ## 🚀 Getting Started
 
-> The commands below are verified for this repository. If your local
-> environment differs, see **Troubleshooting** or **Setup Guide**.
+> The commands below are verified for this repository. This project is a
+> client-side React SPA; Python and Docker are **not** required.
 
 ### Prerequisites
 
-- **Node.js:** 18+ (verified on Node 18 & 20)
+- **Node.js:** 18+ (tested on Node 18 & 20)
 - **npm:** 9+ (standard package manager for this repository)
 
 ### 1) Local Setup
@@ -42,18 +42,21 @@ npm install
 npm run dev
 ```
 
-Once running, the application can be accessed locally at:
+Once running, access the local server at:
 [http://localhost:5173/Noosphere-Nexus/](http://localhost:5173/Noosphere-Nexus/)
 
-### 3) Production Build
+### 3) Production Build & Preview
 
 ```bash
-# Compile and optimize for production
+# Compile and optimize assets for production
 npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
-This processes and bundles assets into the `dist/` directory, copying the
-entry point `index.html` to `404.html` to support client-side SPA routing.
+The build script bundles assets into `dist/` and copies `dist/index.html` to
+`dist/404.html` for GitHub Pages SPA routing support.
 
 ---
 
@@ -105,9 +108,9 @@ To prevent a blank white screen on deploy, the application is configured to
 run in the case-sensitive `/Noosphere-Nexus/` subdirectory:
 
 1. **Vite Base:** `base: '/Noosphere-Nexus/'` in `vite.config.js`.
-2. **SPA Fallback:** The build script `"build": "vite build && cp dist/index.html
-dist/404.html"` creates `404.html` so direct subdirectory URL requests route
-back to React Router correctly.
+2. **SPA Fallback:** The build script `"build": "vite build && cp dist/index.html dist/404.html"`
+   creates `404.html` so direct subdirectory URL requests route back to React
+   Router correctly.
 
 </details>
 
