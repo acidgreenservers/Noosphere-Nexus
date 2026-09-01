@@ -38,3 +38,18 @@ strengthens repository integrity.
 internal references and auxiliary docs to point to the corrected path. Polished
 core and supplementary markdown files to satisfy rigorous linting parameters
 while retaining Scribe-allowed HTML enhancements.
+
+## 2026-08-02 - Documentation Modernization & Multi-Agent Guide Synchronization
+
+**Observation:** The repository structure contained multiple documentation pages in
+`src/pages/docs/` that were omitted from `ARCHITECTURE.md`, `PROJECT-BLUEPRINT.md`,
+`CLAUDE.md`, and `GEMINI.md`.
+
+**Learning:** Keeping agent guides and architectural blueprints perfectly in sync
+with actual React page components prevents developer drift and ensures AI assistants
+have full context when adding routes or navigation links.
+
+**Action:** Expanded component hierarchies across `ARCHITECTURE.md`, `PROJECT-BLUEPRINT.md`,
+`CLAUDE.md`, and `GEMINI.md` to include all 11 documentation components. Configured
+`.markdownlint.json` to allow Scribe-standard HTML collapsibles (`<details>`, `<summary>`)
+while enforcing markdown quality across all repo docs.
