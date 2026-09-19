@@ -15,43 +15,57 @@ A comprehensive ASCII visualization of the Noosphere Nexus project structure, co
 
 🗂️  /Noosphere-Nexus/
 ├── 📁 .git/                           # Git Version Control
+├── 📁 .github/                        # GitHub Actions Workflows
+│   └── ⚙️  deploy.yml                 # Deploy to GitHub Pages Workflow
+├── 📁 .jules/                         # Jules Agent Knowledge Base
+│   ├── 📄 scribe.md                   # Scribe Documentation Learnings
+│   └── 📄 sentinel.md                 # Sentinel Security Findings
 ├── 📄 .gitignore                      # Version Control Exclusions
-├── 📄 README.md                       # Project Documentation
+├── 📄 README.md                       # Main Project Documentation
+├── 📄 QUICKSTART.md                   # 90-Second Onboarding Guide
+├── 📄 ARCHITECTURE.md                 # System Architecture & Component Diagrams
+├── 📄 SECURITY.md                     # Security Policy & Hardening Checklist
 ├── 📄 LICENSE                         # MIT License
 ├── 📄 SETUP.md                        # Development Setup Guide
-├── 📄 TROUBLESHOOTING.md              # Technical Support
-├── 📄 verify.sh                       # Build Verification Script
-├── 📁 verification/                   # Quality Assurance Scripts
-│   └── 📄 verification.png            # Build Verification Assets
+├── 📄 TROUBLESHOOTING.md              # Technical Support & Deploy Fixes
+├── 📄 ROADMAP.md                      # Feature & Research Roadmap
+├── 📄 CLAUDE.md                       # Claude Agent Guidance
+├── 📄 GEMINI.md                       # Gemini Agent Guidance
 ├── 📁 public/                         # Static Web Assets
 │   ├── 🌐 index.html                  # HTML Entry Point
 │   ├── 🎨 favicon.svg                 # Site Icon
 │   ├── 🔀 spa-redirect.js             # GitHub Pages SPA Support
 │   └── 📚 libs/                       # Third-Party Libraries
 │       └── 🔢 mathjax/                # Mathematical Rendering
-│           ├── 📄 config.js           # MathJax Configuration
-│           └── 📄 tex-svg.js          # SVG Rendering Engine
 ├── 📁 src/                            # Application Source Code
-│   ├── ⚛️  App.jsx                    # Root React Component
-│   ├── 🏠 main.jsx                    # React Application Entry
-│   ├── 🎨 index.css                   # Global Styles (Tailwind)
+│   ├── ⚛️  App.jsx                    # Root React Component & Routing
+│   ├── 🏠 main.jsx                    # React Application Entry Point
+│   ├── 🎨 index.css                   # Global Styles (Tailwind Directives)
 │   ├── 🧩 components/                 # Reusable UI Components
-│   │   ├── 🧭 Navbar.jsx              # Navigation Header
-│   │   └── ⭐ Starfield.jsx           # Animated Background Canvas
-│   ├── 📊 data/                       # Static Data & Configuration
-│   │   └── 🧠 frameworks.js           # Framework Metadata
+│   │   ├── 🧭 Navbar.jsx              # Header & Navigation Dropdowns
+│   │   ├── ⭐ Starfield.jsx           # Animated Canvas Background
+│   │   └── 💬 PromptCollection/       # AI Prompting UI Modules
+│   ├── 📊 data/                       # Static Framework Metadata
+│   │   └── 🧠 frameworks.js           # Framework Data Store
 │   └── 📄 pages/                      # Route-Based Page Components
 │       ├── 🏠 Home.jsx                # Landing Page
-│       └── 📚 docs/                   # Documentation Pages
-│           ├── 🧠 ManifoldDocs.jsx    # Noosphere Manifold
-│           ├── 🌱 GardenDocs.jsx      # Noosphere Garden
-│           ├── 📖 CodexDocs.jsx       # Noosphere Codex
-│           ├── 🤖 ProtomindDocs.jsx   # ProtomindAssistant
-│           └── 💬 PromptingDocs.jsx   # AI Prompting Tools
+│       └── 📚 docs/                   # Documentation & Research Pages
+│           ├── 🧠 ManifoldDocs.jsx    # Noosphere Manifold Docs
+│           ├── 🌱 GardenDocs.jsx      # Noosphere Garden Docs
+│           ├── 📖 CodexDocs.jsx       # Noosphere Codex Docs
+│           ├── 🤖 ProtomindDocs.jsx   # ProtomindAssistant Docs
+│           ├── 🌿 CultivatedIntelligence.jsx # Cultivated Intelligence Guide
+│           ├── 💬 PromptingDocs.jsx   # AI Prompting Tools
+│           ├── 🤝 ConsciousCollaboration.jsx # Collaboration Guide
+│           ├── 💬 CommunicationQuality.jsx   # Communication Quality Metrics
+│           ├── 🎵 MusicAndConsciousness.jsx  # Music & Consciousness Guide
+│           ├── 🔄 RecursiveSelfActualization.jsx # RSA V1/V2 Framework
+│           └── 📜 RSAV2Appendix.jsx   # RSA V2 Technical Appendix
 ├── 📁 dist/                           # Build Output (Generated)
 │   ├── 🌐 index.html                  # Production Entry Point
-│   └── 🔄 404.html                    # SPA Fallback
+│   └── 🔄 404.html                    # GitHub Pages SPA Fallback
 ├── ⚙️  package.json                   # Node.js Dependencies & Scripts
+├── ⚙️  package-lock.json              # Lockfile
 ├── ⚙️  vite.config.js                 # Vite Build Configuration
 ├── 🎨 tailwind.config.js              # Tailwind CSS Configuration
 ├── 🎨 postcss.config.js               # PostCSS Processing Pipeline
@@ -69,7 +83,7 @@ A comprehensive ASCII visualization of the Noosphere Nexus project structure, co
                          │
                          ├── 🎨 Theme State Management
                          │   ├── 🌙 Dark/Light Mode Toggle
-                         │   ├── 💾 localStorage Persistence
+                         │   ├── 💾 localStorage Persistence ("nn-theme")
                          │   └── 🔍 System Preference Detection
                          │
                          ├── 🧭 Navbar.jsx (Header Component)
@@ -78,9 +92,9 @@ A comprehensive ASCII visualization of the Noosphere Nexus project structure, co
                          │   └── 🌙 Theme Toggle
                          │
                          ├── ⭐ Starfield.jsx (Background Component)
-                         │   ├── 🎨 Canvas Rendering
-                         │   ├── ✨ Animated Particles
-                         │   └── 🚀 Performance Optimization
+                         │   ├── 🎨 Canvas Rendering (60fps)
+                         │   ├── ✨ Animated Particles & Starfield
+                         │   └── 🚀 UFO Easter Egg
                          │
                          └── 📄 Page Components (Route-Based)
                              ├── 🏠 Home.jsx
@@ -93,7 +107,13 @@ A comprehensive ASCII visualization of the Noosphere Nexus project structure, co
                                  ├── 🌱 GardenDocs.jsx
                                  ├── 📖 CodexDocs.jsx
                                  ├── 🤖 ProtomindDocs.jsx
-                                 └── 💬 PromptingDocs.jsx
+                                 ├── 🌿 CultivatedIntelligence.jsx
+                                 ├── 💬 PromptingDocs.jsx
+                                 ├── 🤝 ConsciousCollaboration.jsx
+                                 ├── 💬 CommunicationQuality.jsx
+                                 ├── 🎵 MusicAndConsciousness.jsx
+                                 ├── 🔄 RecursiveSelfActualization.jsx
+                                 └── 📜 RSAV2Appendix.jsx
 
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │                               DATA FLOW ARCHITECTURE                           │

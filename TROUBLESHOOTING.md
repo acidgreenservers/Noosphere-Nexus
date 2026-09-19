@@ -67,9 +67,7 @@ static platforms easily:
 
 - **Cloudflare Pages:**
   1. Navigate to
-     <a href="https://pages.cloudflare.com"
-        target="_blank"
-        rel="noopener noreferrer">Cloudflare Pages</a>.
+     <a href="https://pages.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a>.
   2. Connect your GitHub repository.
   3. Set build command to: `npm run build`
   4. Set output directory to: `dist`
@@ -77,9 +75,7 @@ static platforms easily:
 
 - **Vercel:**
   1. Navigate to
-     <a href="https://vercel.com"
-        target="_blank"
-        rel="noopener noreferrer">Vercel</a>.
+     <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>.
   2. Import the project repository.
   3. The build parameters are auto-detected. Click deploy!
 

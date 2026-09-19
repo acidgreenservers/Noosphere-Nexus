@@ -26,20 +26,20 @@ We aim to acknowledge and respond to all reports within **48 hours**.
 
 Noosphere Nexus is compiled to a static client site with:
 
-- No backend servers/databases
+- No backend servers or databases
 - No user accounts or authentication flows
 - No sensitive personally identifiable information (PII) processing
 
 This minimal attack surface significantly reduces runtime risk, but we remain
-vigilant with regards to package safety.
+vigilant with regards to dependency safety.
 
 ## Hardening Checklist
 
-- [x] **No unsafe innerHTML:** Avoid `dangerouslySetInnerHTML` to prevent XSS.
-- [x] **Secure Links:** All external links use `rel="noopener noreferrer"`.
-- [ ] **Content Security Policy (CSP):** (Planned) Strict policy headers.
-- [x] **Dependency Audits:** Run `npm audit` checks regularly in dev.
-- [x] **Subresource Integrity:** (Planned) Evaluate for third-party scripts.
+- [x] **No Unsafe innerHTML:** Avoid `dangerouslySetInnerHTML` to prevent XSS.
+- [x] **Secure Links:** External links use `rel="noopener noreferrer"`.
+- [ ] **Content Security Policy (CSP):** Strict policy headers evaluated.
+- [x] **Dependency Audits:** Run `npm audit` checks regularly in development.
+- [x] **Subresource Integrity:** Evaluate for static assets and scripts.
 
 ## Sensitive Data
 

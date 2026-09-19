@@ -5,8 +5,10 @@ in under 90 seconds.
 
 ## Prerequisites
 
-- **Node.js**: 18+
-- **npm**: (included with Node.js)
+- **Node.js**: 18+ (tested on Node 18 & 20)
+- **npm**: 9+ (included with Node.js)
+
+> Note: No Python or Docker environment is needed for this repository.
 
 ## 1) Clone & Enter
 
@@ -27,13 +29,16 @@ npm run dev
 
 ## 3) Access the App
 
-- **Local:** [http://localhost:5173/Noosphere-Nexus/](http://localhost:5173/Noosphere-Nexus/)
+- **Local Development:** [http://localhost:5173/Noosphere-Nexus/](http://localhost:5173/Noosphere-Nexus/)
 
-## 4) Verify Build
+## 4) Verify Production Build
 
 ```bash
-# Build production bundles
+# Build production assets
 npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
 ---

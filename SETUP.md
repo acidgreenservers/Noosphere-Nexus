@@ -14,6 +14,8 @@ Noosphere Nexus consciousness research platform.
 - **Git:** For version control
 - **Text Editor:** VS Code / Cursor or similar editor recommended
 
+> Note: Python and Docker are **not** required for this client-side React SPA.
+
 ### Installation
 
 ```bash
