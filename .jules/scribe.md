@@ -53,3 +53,11 @@ have full context when adding routes or navigation links.
 `CLAUDE.md`, and `GEMINI.md` to include all 11 documentation components. Configured
 `.markdownlint.json` to allow Scribe-standard HTML collapsibles (`<details>`, `<summary>`)
 while enforcing markdown quality across all repo docs.
+
+## 2026-08-03 - Roadmap Markdown Lint Resolution & Scribe Verification
+
+**Observation:** `ROADMAP.md` accumulated multiple markdown lint warnings (MD022 heading blank lines, MD026 heading trailing punctuation, MD032 list blank lines, MD036 emphasis as heading).
+
+**Learning:** Keeping roadmap documents strictly compliant with repository markdown rules ensures automated CI lint passes succeed without suppressing rules or ignoring key project documentation.
+
+**Action:** Refactored `ROADMAP.md` formatting to satisfy `markdownlint-cli2`, converting emphasis headings into proper heading tags and eliminating trailing punctuation.
